@@ -1,0 +1,407 @@
+* {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: cursive, Circular, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+/* Global */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container>h1#title {
+  padding-top: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
+  width: 50%;
+  background: #196282;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 31px 123px;
+}
+
+.viewBtn {
+  height: 20px;
+  width: 100px;
+  margin: -20px -50px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  background: #ba7e0f;
+}
+
+.landingBtn {
+  width: 30%;
+  background: transparent;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+
+.landingBtn:hover {
+  background: #fff;
+  color: #1f769d;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.viewSubmit {
+  width: 28%;
+  background: #ba7e0f;
+  color: #ffffff;
+  /* padding: 3px 17px; */
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+#admin-details {
+  width: 50%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.dark {
+  padding: 15px;
+  background: #35424a;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 740px;
+}
+
+.white-login {
+  padding: 15px;
+  background: #fff;
+  color: #ffffff;
+  margin-bottom: 0px;
+  height: 600px;
+  margin: 0 150px 0 150px;
+}
+
+.dark-admin-details {
+  padding: 15px;
+  background: #35424a;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 800px;
+}
+
+.dark-user {
+  padding: 15px;
+  background: #35424a;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.dark-admin {
+  padding: 15px;
+  background: #35424a;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 3px solid #ba7e0f;
+  height: 740px;
+}
+
+/* Header **/
+
+header {
+  background: #196282;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #fff 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header li {
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+
+header nav {
+  float: right;
+  margin-top: 10px;
+}
+
+header #highlight, nav .current {
+  color: #f65383;
+  font-weight: bold;
+}
+
+nav .display {
+  display: none
+}
+
+header #trackerText {
+  font-size: 30px;
+}
+
+header #highlighter {
+  color: #f65383;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#highlighter {
+  color: #f65383;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Background Image */
+
+#backgroundImg {
+  min-height: 700px;
+  background: url("https://cdn.dribbble.com/users/666009/screenshots/2942765/town0001.png") no-repeat 0;
+  background-size: cover;
+  text-align: center;
+  color: #ffffff;
+}
+
+#backgroundImg h1 {
+  margin-top: 100px;
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+#backgroundImg p {
+  font-size: 20px;
+}
+
+/* Boxes */
+
+#boxes {
+  margin-top: 20px;
+  margin-bottom: 90px;
+}
+
+#boxes .box {
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+}
+
+#boxes .box img {
+  width: 150px;
+  height: 150px;
+}
+
+/* Sidebar */
+
+section#request-bar {
+  width: 100%;
+}
+
+section#right-sidebar {
+  width: 50%;
+  float: right;
+}
+
+section>#admin-bar, #login-bar, #signup-bar {
+  width: 100%;
+}
+
+#settingsImage {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.userform {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #f65383;
+}
+
+#quoteTitle {
+  text-align: center;
+  margin-left: -21px;
+  color: #f65383;
+}
+
+.userform input, textarea, select {
+  width: 70%;
+  padding: 13px 132px;
+  margin: 8px 73px;
+  display: inline-block;
+  border: 1px solid #f65383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  margin-top: -3em;
+  padding: 1px;
+  color: #ffffff;
+  background-color: #196282;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* Table CSS */
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 2px solid #ba7e0f;
+}
+
+tr:hover {
+  background-color: #ba7e0f;
+}
+
+.eye-icon i {
+  text-decoration: none;
+  background: white;
+  padding: 4px;
+  margin-left: 10px;
+}
+
+.eye-icon a:hover {
+  text-decoration: none;
+  background: #ba7e0f;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #ba7e0f;
+  color: white;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: rgb(238, 104, 104);
+}
+
+.button3 {
+  background-color: dark#ba7e0f;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.flex-container>div {
+  background-color: #ba7e0f;
+  width: 420px;
+  height: 250px;
+  margin: 15px;
+  color: white;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: #ba7e0f;
+  text-align: center
+}
+
+.signup-link p {
+  text-align: center
+}
+
+#border-box {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid#878b87;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+#pending {
+  background: lightblue;
+  color: black;
+  padding: 5px;
+}
+
+.status-color {
+  color: #ba7e0f;
+}
+
+textarea {
+  resize: none;
+}
+
+.flex-user-container>div {
+  background-color: #ba7e0f;
+  width: 100%;
+  height: 240px;
+  color: white;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}

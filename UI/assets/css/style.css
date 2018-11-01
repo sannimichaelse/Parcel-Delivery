@@ -51,19 +51,19 @@ ul {
 }
 
 .landingBtn {
-  width: 30%;
-  background: transparent;
-  color: #ffffff;
+  width: 25%;
+  background: #fff;
+  color: #1f769d;
   padding: 14px 40px;
   border-radius: 20px;
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-weight: bold;
   border: 2px solid transparent;
 }
 
 .landingBtn:hover {
-  background: #fff;
+  background: whitesmoke;
   color: #1f769d;
   border: 2px solid transparent;
   cursor: pointer;
@@ -101,6 +101,15 @@ ul {
   margin-bottom: 0px;
   height: 600px;
   margin: 0 150px 0 150px;
+}
+
+.whitee-login {
+  padding: 15px;
+  background: #fff;
+  color: #ffffff;
+  margin-bottom: 0px;
+  height: 530px;
+  margin: 0 250px 0 250px;
 }
 
 .dark-admin-details {
@@ -205,8 +214,8 @@ header a:hover {
 }
 
 #backgroundImg h1 {
-  margin-top: 100px;
-  font-size: 45px;
+  margin-top: 80px;
+  font-size: 40px;
   margin-bottom: 10px;
 }
 
@@ -255,7 +264,7 @@ section>#admin-bar, #login-bar, #signup-bar {
 
 .userform {
   width: 50%;
-  margin: 0 auto;
+  margin: -30px auto;
   border: 1px solid #f65383;
 }
 
@@ -267,8 +276,9 @@ section>#admin-bar, #login-bar, #signup-bar {
 
 .userform input, textarea, select {
   width: 70%;
-  padding: 13px 132px;
+  padding: 13px;
   margin: 8px 73px;
+  text-align: center;
   display: inline-block;
   border: 1px solid #f65383;
   border-radius: 4px;
@@ -304,7 +314,8 @@ th, td {
 }
 
 tr:hover {
-  background-color: #ba7e0f;
+  background-color: white;
+  cursor: pointer
 }
 
 .eye-icon i {
@@ -404,4 +415,73 @@ textarea {
   text-align: center;
   line-height: 75px;
   font-size: 30px;
+}
+
+.col-container {
+  display: flex;
+  width: 100%;
+}
+
+.col {
+  flex: 1;
+  padding: 10px;
+  margin: 20px;
+  height: 100px;
+  color: white
+}
+
+.dashboard {
+  margin: 0 100px 0 100px;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  background: #196282 !important;
+  color: white
+}
+
+tr:hover {
+  background-color: #ffffff;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 2px solid grey;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+  padding-right: 30px;
+}
+
+#textbox {
+  clear: both;
+}
+
+.view-button {
+  width: 50%;
+  background: #196282;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 31px 123px;
+}
+
+.showDetails:hover {
+  cursor: pointer;
+  background: #196282;
+  color: white
 }

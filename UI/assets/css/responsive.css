@@ -1,6 +1,10 @@
 /* Media Queries */
 
 @media(max-width: 768px) {
+    .col {
+        display: block;
+        width: 100%;
+    }
     header #branding, header nav, header nav li, #boxes .box, section#sidebar {
         float: none;
         text-align: center;
@@ -19,7 +23,8 @@
     .userform input, textarea, select {
         width: 92%;
         margin-bottom: 5px;
-        padding: 13px 132px;
+        padding: 13px;
+        text-align: center;
         margin: 8px 16px;
         display: inline-block;
         border: 1px solid#878b87;
@@ -27,6 +32,7 @@
         box-sizing: border-box;
         font-size: 18px;
     }
+    
     #buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
         width: 50%;
         background: #196282;
@@ -124,3 +130,4 @@
         font-size: 30px;
     }
 }
+

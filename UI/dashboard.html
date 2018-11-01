@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Maintain and Track your equipments">
+    <meta name="author" content="Sanni Michael Tomiwa">
+    <title>Send IT | Login </title>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>
+                    <a href="index.html">
+                        <span id="trackerText">Send<span id="highlighter">it</span></span>
+                    </a>
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="current" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="parcel.html">Parcel</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="login-bar">
+        <div class="dashboard-login">
+            <br>
+            <h1 class="text-center">Welcome, Sanni Michael Tomiwa</h1>
+            <div class="dashboard">
+                <div class="col-container">
+                    <div class="col" style="background:#196282">
+                        <p class="text-center">All Parcels</p>
+                        <h1 class="text-center">50</h1>
+                    </div>
+
+                    <div class="col" style="background:#196282">
+                        <p class="text-center">Processing Parcels</p>
+                        <h1 class="text-center">5</h1>
+                    </div>
+
+                    <div class="col" style="background:#196282">
+                        <p class="text-center">Delivered Parcels</p>
+                        <h1 class="text-center">45</h1>
+                    </div>
+                </div>
+
+                <br>
+                <div id="textbox">
+                    <h2 class="alignleft">
+                        All Packages
+                    </h2>
+                    <h6 class="alignright">
+                        <a style="text-decoration:none" href="parcel.html"><i class="fas fa-plus fa-3x" style="color:#f65383"></i></a>
+                    </h6>
+                </div>
+                <div style="clear: both;"></div>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Parcel</th>
+                            <th>Weight(kg)</th>
+                            <th>Location</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Phones</td>
+                            <td>50kg</td>
+                            <td>Yaba</td>
+                            <td>Ikeja</td>
+                            <td>Delivered</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Plates</td>
+                            <td>4kg</td>
+                            <td>Sabo</td>
+                            <td>Badagry</td>
+                            <td>Declined</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Ball</td>
+                            <td>10kg</td>
+                            <td>Yaba</td>
+                            <td>Ikorodu</td>
+                            <td>Processing</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Phones</td>
+                            <td>50kg</td>
+                            <td>Yaba</td>
+                            <td>Ikeja</td>
+                            <td>Delivered</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Plates</td>
+                            <td>4kg</td>
+                            <td>Sabo</td>
+                            <td>Badagry</td>
+                            <td>Declined</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Phones</td>
+                            <td>50kg</td>
+                            <td>Yaba</td>
+                            <td>Ikeja</td>
+                            <td>Delivered</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Ball</td>
+                            <td>10kg</td>
+                            <td>Yaba</td>
+                            <td>Ikorodu</td>
+                            <td>Processing</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Phones</td>
+                            <td>50kg</td>
+                            <td>Yaba</td>
+                            <td>Ikeja</td>
+                            <td>Delivered</td>
+                            <td><button class="showDetails" id="showDetails">Show Details</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br><br><br><br>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            <span id="trackerText">Send<span id="highlighter">it</span></span>
+            , Copyright &copy; 2018</p>
+    </footer>
+    <!-- <script src="assets/js/sweetalert.min.js"></script> -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,9 @@
-
-
 /*****************************************************************
                   VALIDATION FOR LOGIN
 ******************************************************************/
 
 const validateLogin = () => {
-
-  location.href = "user_request_view.html";
+  location.href = "dashboard.html";
 };
 
 let login = document.getElementById("buttonSubmit");
@@ -23,7 +20,7 @@ if (login) login.addEventListener("click", validateLogin);
 const validateSignup = () => {
   console.log("hello");
 
-  location.href = "user_request_view.html";
+  location.href = "dashboard.html";
 };
 
 let signup = document.getElementById("signupSubmit");
@@ -39,8 +36,7 @@ if (signup) signup.addEventListener("click", validateSignup);
 ******************************************************************/
 
 const validateRequest = () => {
-
-  location.href = "user_request_view.html";
+  location.href = "dashboard.html";
 };
 
 let request = document.getElementById("requestSubmit");
@@ -55,10 +51,14 @@ if (request) request.addEventListener("click", validateRequest);
                 NEW REQUESTS
 ******************************************************************/
 const newRequestt = () => {
- console.log('hello')
-  location.href = "user_page.html";
+  console.log("hello");
+  location.href = "dashboard.html";
 };
 
 let newRequest = document.getElementById("newRequest");
 
 if (newRequest) newRequest.addEventListener("click", newRequestt);
+
+document.getElementById("showDetails").addEventListener("click", () => {
+  location.href = "details.html";
+});

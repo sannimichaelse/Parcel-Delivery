@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Order and Process Parcels">
     <meta name="author" content="Sanni Michael Tomiwa">
-    <title>Send IT | Login </title>
+    <title>Send IT | Dashboard </title>
     <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
         crossorigin="anonymous">
@@ -46,17 +46,17 @@
             <h1 class="text-center">Welcome, Sanni Michael Tomiwa</h1>
             <div class="dashboard">
                 <div class="col-container">
-                    <div class="col" style="background:white">
+                    <div class="col white-bg">
                         <p class="allparcels">All Parcels</p>
                         <h1 class="allparcels">1000</h1>
                     </div>
 
-                    <div class="col" style="background:white">
+                    <div class="col white-bg">
                         <p class="processing">Processing Parcels</p>
                         <h1 class="processing">236</h1>
                     </div>
 
-                    <div class="col" style="background:white">
+                    <div class="col white-bg">
                         <p class="delivered">Delivered Parcels</p>
                         <h1 class="delivered">764</h1>
                     </div>
@@ -68,11 +68,11 @@
                         All Packages
                     </h2>
                     <h6 class="alignright">
-                        <a style="text-decoration:none" href="parcel.html"><i class="fas fa-plus fa-3x" style="color:#f65383"></i></a>
+                        <a id="addIcon" href="parcel.html"><i class="fas fa-plus fa-3x"></i></a>
                     </h6>
                 </div>
-                <div style="clear: both;"></div>
-                <div style="overflow-x:auto;">
+                <div id="clearAlignment"></div>
+                <div id="tableContainer">
                     <table>
                         <tr>
                             <th>&nbsp;</th>
@@ -169,7 +169,6 @@
             <span id="trackerText">Send<span id="highlighter">it</span></span>
             , Copyright &copy; 2018</p>
     </footer>
-    <!-- <script src="assets/js/sweetalert.min.js"></script> -->
     <script src="assets/js/app.js"></script>
 </body>
 

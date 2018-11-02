@@ -333,7 +333,7 @@ tr:hover {
 }
 
 .button {
-  background-color: #4caf50;
+  background-color: #196282;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -345,13 +345,17 @@ tr:hover {
 }
 
 .button:hover {
-  background: #ba7e0f;
+  background: lightblue;
   color: white;
   cursor: pointer;
 }
 
 .button2 {
   background-color: rgb(238, 104, 104);
+}
+
+.button2:hover{
+  background-color:lightpink;
 }
 
 .button3 {
@@ -496,6 +500,11 @@ th, td {
   color: orangered;
   font-weight: bold;
   text-align: center;
+}
+
+h1.allparcels, h1.processing,  h1.delivered{
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .processing {

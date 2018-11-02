@@ -21,26 +21,24 @@
         width: 100%;
     }
     .userform input, textarea, select {
-        width: 92%;
-        margin-bottom: 5px;
-        padding: 13px;
+        width: 55%;
+        padding: 12px;
+        margin: 8px 106px;
         text-align: center;
-        margin: 8px 16px;
         display: inline-block;
-        border: 1px solid#878b87;
+        border: 1px solid grey;
         border-radius: 4px;
         box-sizing: border-box;
         font-size: 18px;
     }
-    
     #buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
-        width: 50%;
+        width: 45%;
         background: #196282;
         color: #ffffff;
         padding: 14px 40px;
         border-radius: 10px;
         font-size: 18px;
-        margin: 31px 91px;
+        margin: 31px 136px;
     }
 }
 
@@ -100,13 +98,13 @@
         height: 920px;
     }
     #buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
-        width: 50%;
+        width: 45%;
         background: #196282;
         color: #ffffff;
-        padding: 14px 40px;
+        padding: 12px 40px;
         border-radius: 10px;
         font-size: 18px;
-        margin: 31px 123px;
+        margin: 31px 136px;
     }
     .flex-container>div {
         width: 420px;
@@ -130,4 +128,3 @@
         font-size: 30px;
     }
 }
-

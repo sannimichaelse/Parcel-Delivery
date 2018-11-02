@@ -1,6 +1,5 @@
 * {
-  /* font-family: 'Ubuntu', sans-serif; */
-  font-family: cursive, Circular, "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: 'Sunflower', sans-serif;
 }
 
 body {
@@ -31,13 +30,13 @@ ul {
 }
 
 #buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
-  width: 50%;
+  width: 45%;
   background: #196282;
   color: #ffffff;
-  padding: 14px 40px;
+  padding: 12px 40px;
   border-radius: 10px;
   font-size: 18px;
-  margin: 31px 123px;
+  margin: 31px 136px;
 }
 
 .viewBtn {
@@ -100,7 +99,7 @@ ul {
   color: #ffffff;
   margin-bottom: 0px;
   height: 600px;
-  margin: 0 150px 0 150px;
+  margin: 0 ;
 }
 
 .whitee-login {
@@ -109,7 +108,7 @@ ul {
   color: #ffffff;
   margin-bottom: 0px;
   height: 530px;
-  margin: 0 250px 0 250px;
+  margin: 0;
 }
 
 .dark-admin-details {
@@ -263,9 +262,9 @@ section>#admin-bar, #login-bar, #signup-bar {
 }
 
 .userform {
-  width: 50%;
+  width: 37%;
   margin: -30px auto;
-  border: 1px solid #f65383;
+  border: 1px solid grey;
 }
 
 #quoteTitle {
@@ -275,12 +274,12 @@ section>#admin-bar, #login-bar, #signup-bar {
 }
 
 .userform input, textarea, select {
-  width: 70%;
-  padding: 13px;
-  margin: 8px 73px;
+  width: 55%;
+  padding: 10px;
+  margin: 8px 106px;
   text-align: center;
   display: inline-block;
-  border: 1px solid #f65383;
+  border: 1px solid grey;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 18px;
@@ -427,7 +426,8 @@ textarea {
   padding: 10px;
   margin: 20px;
   height: 100px;
-  color: white
+  color: white;
+  border-radius: 30px;
 }
 
 .dashboard {
@@ -480,8 +480,37 @@ th, td {
   margin: 31px 123px;
 }
 
+.showDetails {
+  border-radius: 5px
+}
+
 .showDetails:hover {
   cursor: pointer;
   background: #196282;
   color: white
+}
+
+.allparcels {
+  color: orangered;
+  font-weight: bold;
+  text-align: center;
+}
+
+.processing {
+  color: orange;
+  font-weight: bold;
+  text-align: center;
+}
+
+.delivered {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+.detailContainer {
+  margin: auto;
+  width: 50%;
+  border: 2px solid grey;
+  padding: 10px;
 }

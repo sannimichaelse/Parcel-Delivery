@@ -30,7 +30,7 @@ ul {
   padding: 0;
 }
 
-#buttonSubmit, #signupSubmit, #requestSubmit, #newRequest {
+#buttonSubmit{
   width: 45%;
   background: #196282;
   color: #ffffff;
@@ -38,6 +38,11 @@ ul {
   border-radius: 10px;
   font-size: 18px;
   margin: 31px 136px;
+}
+
+#buttonSubmit:hover{
+  background: #78a5b8;
+  color: #ffffff;
 }
 
 .viewBtn {
@@ -524,4 +529,30 @@ h1.allparcels, h1.processing,  h1.delivered{
   width: 50%;
   border: 1px solid grey;
   padding: 10px;
+}
+
+.white-bg{
+  background:white
+}
+
+#addIcon{
+  text-decoration:none;
+  color:#f65383
+}
+
+#addIcon:hover{
+  text-decoration:none;
+  color:#f17a9e
+}
+
+#clearAlignment{
+  clear: both;
+}
+
+#tableContainer{
+  overflow-x:auto;
+}
+
+.detailsForm{
+  color: black;text-align: center;
 }

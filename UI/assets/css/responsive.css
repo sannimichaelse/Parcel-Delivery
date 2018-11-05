@@ -1,6 +1,15 @@
 /* Media Queries */
 
 @media(max-width: 768px) {
+    .remove-styles {
+        width: 100px;
+        padding: 10px;
+        margin: 0;
+        border: 1px solid grey;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 10px;
+    }
     .whitee-login {
         height: 634px;
     }

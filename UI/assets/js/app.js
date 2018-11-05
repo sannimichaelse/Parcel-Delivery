@@ -1,7 +1,3 @@
-/*****************************************************************
-                  VALIDATION FOR LOGIN
-******************************************************************/
-
 const validateLogin = () => {
   location.href = "dashboard.html";
 };
@@ -9,56 +5,150 @@ const validateLogin = () => {
 let login = document.getElementById("buttonSubmit");
 if (login) login.addEventListener("click", validateLogin);
 
-/*****************************************************************
-                  END OF VALIDATION FOR LOGIN
-******************************************************************/
-
-/*****************************************************************
-                  VALIDATION FOR SIGNUP
-******************************************************************/
-
 const validateSignup = () => {
   console.log("hello");
 
   location.href = "dashboard.html";
 };
 
-let signup = document.getElementById("signupSubmit");
-
-if (signup) signup.addEventListener("click", validateSignup);
-
-/*****************************************************************
-                  END OF VALIDATION FOR SIGNUP
-******************************************************************/
-
-/*****************************************************************
-                  VALIDATION FOR REQUEST
-******************************************************************/
-
 const validateRequest = () => {
   location.href = "dashboard.html";
 };
 
-let request = document.getElementById("requestSubmit");
-
-if (request) request.addEventListener("click", validateRequest);
-
-/*****************************************************************
-                  END OF VALIDATION FOR REQUEST
-******************************************************************/
-
-/*****************************************************************
-                NEW REQUESTS
-******************************************************************/
-const newRequestt = () => {
-  console.log("hello");
-  location.href = "dashboard.html";
-};
-
-let newRequest = document.getElementById("newRequest");
-
-if (newRequest) newRequest.addEventListener("click", newRequestt);
-
 document.getElementById("showDetails").addEventListener("click", () => {
   location.href = "details.html";
 });
+
+function getStatus(element) {
+  switch (element) {
+    case "one":
+      let status = document.getElementById("statusOne");
+      let statusValue = status.options[status.selectedIndex].value;
+      switch (statusValue) {
+        case "canceled":
+          document.getElementById(
+            "one"
+          ).innerHTML = `<span style="color:red;font-weight:bold">Canceled</span>`;
+          break;
+        case "progress":
+          document.getElementById(
+            "one"
+          ).innerHTML = `<span style="color:orange;font-weight:bold;">Processing</span>`;
+          break;
+        case "delivered":
+          document.getElementById(
+            "one"
+          ).innerHTML = `<span style="color:green;font-weight:bold">Delivered</span>`;
+          break;
+        default:
+          document.getElementById(
+            "one"
+          ).innerHTML = `<span style="color:black">Select Status</span>`;
+          break;
+      }
+    case "two": {
+      let status = document.getElementById("statusTwo");
+      let statusValue = status.options[status.selectedIndex].value;
+      switch (statusValue) {
+        case "canceled":
+          document.getElementById(
+            "two"
+          ).innerHTML = `<span style="color:red;font-weight:bold">Canceled</span>`;
+          break;
+        case "progress":
+          document.getElementById(
+            "two"
+          ).innerHTML = `<span style="color:orange;font-weight:bold;">Processing</span>`;
+          break;
+        case "delivered":
+          document.getElementById(
+            "two"
+          ).innerHTML = `<span style="color:green;font-weight:bold">Delivered</span>`;
+          break;
+        default:
+          document.getElementById(
+            "two"
+          ).innerHTML = `<span style="color:black">Select Status</span>`;
+          break;
+      }
+    }
+    case "three": {
+      let status = document.getElementById("statusThree");
+      let statusValue = status.options[status.selectedIndex].value;
+      switch (statusValue) {
+        case "canceled":
+          document.getElementById(
+            "three"
+          ).innerHTML = `<span style="color:red;font-weight:bold">Canceled</span>`;
+          break;
+        case "progress":
+          document.getElementById(
+            "three"
+          ).innerHTML = `<span style="color:orange;font-weight:bold;">Processing</span>`;
+          break;
+        case "delivered":
+          document.getElementById(
+            "three"
+          ).innerHTML = `<span style="color:green;font-weight:bold">Delivered</span>`;
+          break;
+        default:
+          document.getElementById(
+            "three"
+          ).innerHTML = `<span style="color:black">Select Status</span>`;
+          break;
+      }
+    }
+    case "four": {
+      let status = document.getElementById("statusFour");
+      let statusValue = status.options[status.selectedIndex].value;
+      switch (statusValue) {
+        case "canceled":
+          document.getElementById(
+            "four"
+          ).innerHTML = `<span style="color:red;font-weight:bold">Canceled</span>`;
+          break;
+        case "progress":
+          document.getElementById(
+            "four"
+          ).innerHTML = `<span style="color:orange;font-weight:bold;">Processing</span>`;
+          break;
+        case "delivered":
+          document.getElementById(
+            "four"
+          ).innerHTML = `<span style="color:green;font-weight:bold">Delivered</span>`;
+          break;
+        default:
+          document.getElementById(
+            "four"
+          ).innerHTML = `<span style="color:black">Select Status</span>`;
+          break;
+      }
+    }
+    case "five": {
+      let status = document.getElementById("statusFive");
+      let statusValue = status.options[status.selectedIndex].value;
+      switch (statusValue) {
+        case "canceled":
+          document.getElementById(
+            "five"
+          ).innerHTML = `<span style="color:red;font-weight:bold">Canceled</span>`;
+          break;
+        case "progress":
+          document.getElementById(
+            "five"
+          ).innerHTML = `<span style="color:orange;font-weight:bold;">Processing</span>`;
+          break;
+        case "delivered":
+          document.getElementById(
+            "five"
+          ).innerHTML = `<span style="color:green;font-weight:bold">Delivered</span>`;
+          break;
+        default:
+          document.getElementById(
+            "five"
+          ).innerHTML = `<span style="color:black">Select Status</span>`;
+          break;
+      }
+    }
+  }
+}

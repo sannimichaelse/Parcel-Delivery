@@ -1,4 +1,4 @@
-import UserhelperClass from "../utilities/dummy";
+import helperClass from "../utilities/dummy";
 import dataStore from "../dummy/index";
 /**
  * @exports
@@ -6,19 +6,15 @@ import dataStore from "../dummy/index";
  */
 class dummyController {
   /**
-   * Creates a new request
+   * Creates a new parcel
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static create(req, res) {
     const { uuid, parcelId } = req.body;
-    const position = UserhelperClass.findParcelByUser(
-      dataStore,
-      uuid,
-      parcelId
-    );
+    const position = helperClass.findParcelByUser(dataStore, uuid, parcelId);
     if (position > -1) {
       return res.status(400).json({
         responseCode: "01",
@@ -33,40 +29,40 @@ class dummyController {
     });
   }
   /**
-   * Deletes a request by id
+   * Deletes a parcel by id
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static deleteOne(req, res) {
     const { id } = req.params;
-    const position = UserhelperClass.findParcel(dataStore, id);
+    const position = helperClass.findParcel(dataStore, id);
     if (position > -1) {
       dataStore.splice(position, 1);
       return res.status(200).json({
         responseCode: "00",
-        responseMessage: "Request Deleted",
+        responseMessage: "parcel Deleted",
         data: dataStore
       });
     }
     return res.status(400).json({
       responseCode: "01",
-      responseMessage: "Request Could not be deleted. ID not found"
+      responseMessage: "parcel Could not be deleted. ID not found"
     });
   }
   /**
-   * Find a request by id
+   * Find a parcel by id
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static findById(req, res) {
     const { id } = req.params;
-    const position = UserhelperClass.findParcel(dataStore, id);
+    const position = helperClass.findParcel(dataStore, id);
     if (position > -1) {
       return res.status(200).json({
         responseCode: "00",
@@ -81,36 +77,35 @@ class dummyController {
     });
   }
   /**
-   * Get all requests
+   * Get all parcels
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static getAll(req, res) {
     return res.status(200).json({
       responseCode: "00",
-      responseMessage: "Successfully fetched all parcel requests",
+      responseMessage: "Successfully fetched all parcel parcels",
       data: dataStore
     });
   }
 
   /**
-   * Get all requests
+   * Get all parcels
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static getParcelsByUserId(req, res) {
-
     const { id } = req.params;
 
-    console.log(id)
+    console.log(id);
 
-    const result = UserhelperClass.findAllParcelByUserId(dataStore, id);
+    const result = helperClass.findAllParcelByUserId(dataStore, id);
 
     if (result === undefined || result.length == 0) {
       return res.status(400).json({
@@ -125,10 +120,10 @@ class dummyController {
     });
   }
   /**
-   * Delete all requests
+   * Delete all parcels
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
@@ -141,17 +136,17 @@ class dummyController {
     });
   }
   /**
-   * Update request by id
+   * Update parcel by id
    *
    * @staticmethod
-   * @param  {object} req - Request object
+   * @param  {object} req - parcel object
    * @param {object} res - Response object
    * @return {json} res.json
    */
   static cancelParcel(req, res) {
     const { id } = req.params;
     console.log(id);
-    const position = UserhelperClass.findUserByParcelId(dataStore, id);
+    const position = helperClass.findUserByParcelId(dataStore, id);
     if (position > -1) {
       dataStore[position].parcelStatus = "Cancelled";
       return res.status(200).json({
@@ -162,7 +157,7 @@ class dummyController {
     }
     return res.status(400).json({
       responseCode: "01",
-      responseMessage: "Request with this id is not found"
+      responseMessage: "parcel with this id is not found"
     });
   }
 }

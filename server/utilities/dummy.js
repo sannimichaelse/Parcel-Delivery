@@ -1,8 +1,8 @@
 /**
  * @exports
- * @class UserhelperClass
+ * @class helperClass
  */
-class UserhelperClass {
+class helperClass {
   /**
    * Userhelper Class
    * @staticmethod
@@ -10,7 +10,7 @@ class UserhelperClass {
    * @param {number} id
    * @return {number} i
    */
-  static findRequest(dataStore, id) {
+  static findParcel(dataStore, id) {
     for (let i = 0; i < dataStore.length; i += 1) {
       if (Number(dataStore[i].userId) === Number(id)) {
         return i;
@@ -48,4 +48,4 @@ class UserhelperClass {
     return resultArray;
   }
 }
-export default UserhelperClass;
+export default helperClass;

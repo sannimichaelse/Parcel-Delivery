@@ -2,9 +2,9 @@ import UserhelperClass from "../utilities/dummy";
 import dataStore from "../dummy/index";
 /**
  * @exports
- * @class userController
+ * @class dummyController
  */
-class UserController {
+class dummyController {
   /**
    * Creates a new request
    * @staticmethod
@@ -42,7 +42,7 @@ class UserController {
    */
   static deleteOne(req, res) {
     const { id } = req.params;
-    const position = UserhelperClass.findRequest(dataStore, id);
+    const position = UserhelperClass.findParcel(dataStore, id);
     if (position > -1) {
       dataStore.splice(position, 1);
       return res.status(200).json({
@@ -66,7 +66,7 @@ class UserController {
    */
   static findById(req, res) {
     const { id } = req.params;
-    const position = UserhelperClass.findRequest(dataStore, id);
+    const position = UserhelperClass.findParcel(dataStore, id);
     if (position > -1) {
       return res.status(200).json({
         responseCode: "00",
@@ -167,4 +167,4 @@ class UserController {
   }
 }
 
-export default UserController;
+export default dummyController;

@@ -1,13 +1,13 @@
-import { Router } from "express";
-import userController from "../controllers/dummyController";
-// import UserMiddleware from "../middlewares/validators/users";
+import { Router } from 'express';
+import dummyController from '../controllers/dummyController';
+import Middleware from '../middlewares/dummyMiddleware';
 
 const router = Router();
 
-router.post("/", userController.create);
-router.get("/", userController.getAll);
-router.get("/:id", userController.findById);
-router.get("/:id/parcels", userController.getParcelsByUserId);
-router.get("/:id/cancel", userController.cancelParcel);
+router.post('/', Middleware.validateDummyData, dummyController.create);
+router.get('/', dummyController.getAll);
+router.get('/:id', dummyController.findById);
+router.get('/:id/parcels', dummyController.getParcelsByUserId);
+router.get('/:id/cancel', dummyController.cancelParcel);
 
 export default router;

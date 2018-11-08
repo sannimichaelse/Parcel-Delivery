@@ -13,8 +13,6 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
-    "chai-http": "^4.0.0",
     "coveralls": "^3.0.1",
     "cross-env": "^5.1.5",
     "eslint": "^4.19.1",
@@ -39,7 +37,9 @@
     "moment": "^2.22.1",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.4",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0"
   },
   "repository": {
     "type": "git",

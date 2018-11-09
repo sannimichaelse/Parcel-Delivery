@@ -30,7 +30,6 @@ class dummyController {
   }
   /**
    * Find a parcel by id
-   *
    * @staticmethod
    * @param  {object} req - parcel object
    * @param {object} res - Response object
@@ -54,7 +53,6 @@ class dummyController {
   }
   /**
    * Get all parcels
-   *
    * @staticmethod
    * @param  {object} req - parcel object
    * @param {object} res - Response object
@@ -70,7 +68,6 @@ class dummyController {
 
   /**
    * Get all parcels
-   *
    * @staticmethod
    * @param  {object} req - parcel object
    * @param {object} res - Response object
@@ -95,7 +92,6 @@ class dummyController {
   }
   /**
    * Cancel parcel by parcel id
-   *
    * @staticmethod
    * @param  {object} req - parcel object
    * @param {object} res - Response object

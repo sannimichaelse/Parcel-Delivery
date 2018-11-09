@@ -5,7 +5,7 @@ node_js:
     
 env:
   global:
-    - CC_TEST_REPORTER_ID=
+    - CC_TEST_REPORTER_ID=181a61b2eb4ed45096e82efe587f34b578fd4b5bf1a8bba0a4f416fceec90b23
 
 before_script:
   - chmod 0755 ./node_modules/.bin/mocha

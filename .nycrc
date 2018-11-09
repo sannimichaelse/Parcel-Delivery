@@ -16,5 +16,6 @@
   "reporter": ["lcov", "json", "text", "html"],
   "sourceMap": false,
   "instrument": false,
+  "cache": true,
   "report-dir": "./coverage"
 }

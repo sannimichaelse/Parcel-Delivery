@@ -4,10 +4,10 @@ import Middleware from '../middlewares/dummyMiddleware';
 
 const router = Router();
 
-router.post('/', Middleware.validateDummyData, dummyController.create);
-router.get('/', dummyController.getAll);
-router.get('/:id', dummyController.findById);
-router.get('/:id/parcels', dummyController.getParcelsByUserId);
-router.get('/:id/cancel', dummyController.cancelParcel);
+router.post('/parcels/', Middleware.validateDummyData, dummyController.createParcel);
+router.get('/parcels/', dummyController.getAllParcels);
+router.get('/parcels/:parcelId', dummyController.findByParcelId);
+router.get('/users/:userId/parcels', dummyController.getParcelsByUserId);
+router.get('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
 
 export default router;

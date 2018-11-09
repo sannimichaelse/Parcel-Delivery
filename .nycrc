@@ -1,0 +1,20 @@
+{
+  "check-coverage": true,
+  "per-file": true,
+  "require": [
+    "babel-register"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/tests/**",
+    "**/UI/**",
+    "server/index.js"
+  ],
+  "include": [
+    "**/server/**"
+  ],
+  "reporter": ["lcov", "json", "text", "html"],
+  "sourceMap": false,
+  "instrument": false,
+  "report-dir": "./coverage"
+}

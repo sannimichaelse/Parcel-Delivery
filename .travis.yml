@@ -22,7 +22,7 @@ install:
 script:
   - npm run test:dev
 
-after_success:
+after_script:
   - npm run coverage
+  - npm run coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - codecov

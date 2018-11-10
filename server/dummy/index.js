@@ -8,7 +8,7 @@ const dataStore = [
     parcelName: 'Infinix HOT 7',
     parcelDestination: 'Lekki',
     parcelLocation: 'sabo',
-    parcelStatus: 'progress',
+    parcelStatus: 'Progress',
   },
   {
     uuid: 'mk3',
@@ -19,7 +19,7 @@ const dataStore = [
     parcelName: 'Samsung',
     parcelDestination: 'Ikorodu',
     parcelLocation: 'Anthony',
-    parcelStatus: 'cancelled',
+    parcelStatus: 'Canceled',
   },
   {
     uuid: 'mk2',
@@ -30,7 +30,7 @@ const dataStore = [
     parcelName: 'Tecno Camon C9',
     parcelDestination: 'Onitsha',
     parcelLocation: 'Lagos',
-    parcelStatus: 'delivered',
+    parcelStatus: 'Delivered',
   },
 ];
 

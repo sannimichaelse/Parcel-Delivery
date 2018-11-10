@@ -5,12 +5,12 @@ import server from '../../index';
 chai.use(chaiHttp);
 chai.should();
 
-describe('Dummy Data Controller Test', () => {
+describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
   /*
    * Test the /GET route
    */
   describe('/GET REQUEST', () => {
-    it('it should GET all parcels', done => {
+    it('it should GET all parcels', (done) => {
       chai
         .request(server)
         .get('/api/v1/parcels')
@@ -25,7 +25,7 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should GET parcel by parcelid specified', done => {
+    it('it should GET parcel by parcelid specified', (done) => {
       chai
         .request(server)
         .get('/api/v1/parcels/2222')
@@ -40,7 +40,7 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should not GET parcel id is not found', done => {
+    it('it should not GET parcel id is not found', (done) => {
       const parcelid = 7;
       chai
         .request(server)
@@ -55,7 +55,7 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should GET all parcels created by a user', done => {
+    it('it should GET all parcels created by a user', (done) => {
       const userid = 3;
       chai
         .request(server)
@@ -71,7 +71,7 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should fail while trying to get all parcels for an unathorized user', done => {
+    it('it should fail while trying to get all parcels for an unathorized user', (done) => {
       const userid = 4;
       chai
         .request(server)
@@ -92,7 +92,7 @@ describe('Dummy Data Controller Test', () => {
 * Test the /POST route
 */
   describe('/POST REQUEST', () => {
-    it('it should make a post request if all fields are not empty ', done => {
+    it('it should make a post request if all fields are not empty ', (done) => {
       chai
         .request(server)
         .post('/api/v1/parcels/')
@@ -117,7 +117,7 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should not make a post request if some fields are empty ', done => {
+    it('it should not make a post request if some fields are empty ', (done) => {
       const body = {
         uuid: '',
         username: 'sullivan',
@@ -127,7 +127,7 @@ describe('Dummy Data Controller Test', () => {
         parcelName: 'Tecno Camon C9',
         parcelDestination: 'Onitsha',
         parcelLocation: 'Lagos',
-        parcelStatus: 'progress'
+        parcelStatus: 'progress',
       };
 
       chai
@@ -144,33 +144,32 @@ describe('Dummy Data Controller Test', () => {
         });
     });
 
-    it('it should not make a post request if a field is not included', done => {
-        const body = {
-          username: 'sullivan',
-          userId: '5',
-          parcelId: '443215',
-          parcelWeigth: '122kg',
-          parcelName: 'Tecno Camon C9',
-          parcelDestination: 'Onitsha',
-          parcelLocation: 'Lagos',
-          parcelStatus: 'progress'
-        };
-  
-        chai
-          .request(server)
-          .post('/api/v1/parcels/')
-          .send(body)
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.deep.equal({
-              responseCode: '01',
-              responseMessage: "\"uuid\" is required"
-            });
-            done();
+    it('it should not make a post request if a field is not included', (done) => {
+      const body = {
+        username: 'sullivan',
+        userId: '5',
+        parcelId: '443215',
+        parcelWeigth: '122kg',
+        parcelName: 'Tecno Camon C9',
+        parcelDestination: 'Onitsha',
+        parcelLocation: 'Lagos',
+        parcelStatus: 'progress',
+      };
+      chai
+        .request(server)
+        .post('/api/v1/parcels/')
+        .send(body)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.deep.equal({
+            responseCode: '01',
+            responseMessage: "\"uuid\" is required"
           });
-      });
+          done();
+        });
+    });
 
-    it('it should throw an error when you try to add duplicate data ', done => {
+    it('it should throw an error when you try to add duplicate data ', (done) => {
       const data = {
         uuid: 'mk9',
         username: 'sullivan',
@@ -180,7 +179,7 @@ describe('Dummy Data Controller Test', () => {
         parcelName: 'Tecno Camon C9',
         parcelDestination: 'Onitsha',
         parcelLocation: 'Lagos',
-        parcelStatus: 'progress'
+        parcelStatus: 'progress',
       };
 
       chai
@@ -203,16 +202,16 @@ describe('Dummy Data Controller Test', () => {
 * Test the /UPDATE route
 */
   describe('/CANCEL REQUEST', () => {
-    it('it should cancel request by parcel id', done => {
+    it('it should cancel request by parcel id', (done) => {
       const parcelid = 2222;
       chai
         .request(server)
-        .get(`/api/v1/parcels/${parcelid}/cancel`)
+        .put(`/api/v1/parcels/${parcelid}/cancel`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
             .property('responseMessage')
-            .to.equals('Parcel Order Cancelled');
+            .to.equals('Parcel Order Canceled');
           res.body.should.have.property('responseCode').to.equals('00');
           res.body.should.have.property('data').to.be.an('object');
           done();

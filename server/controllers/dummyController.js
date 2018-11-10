@@ -102,10 +102,10 @@ class dummyController {
 
     const position = helperClass.findUserByParcelId(dataStore, parcelId);
     if (position > -1) {
-      dataStore[position].parcelStatus = 'Cancelled';
+      dataStore[position].parcelStatus = 'Canceled';
       return res.status(200).json({
         responseCode: '00',
-        responseMessage: 'Parcel Order Cancelled',
+        responseMessage: 'Parcel Order Canceled',
         data: dataStore[position],
       });
     }

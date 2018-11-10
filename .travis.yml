@@ -20,7 +20,7 @@ install:
   - npm install
 
 script:
-  - npm run test:dev
+  - npm run test
 
 after_script:
   - npm run coverage

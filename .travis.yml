@@ -8,13 +8,10 @@ env:
     - CC_TEST_REPORTER_ID=74be89c5053e497019a7c01fb35120e70983fb1c203a3a934082245f683a7502
 
 before_script:
-  - chmod 0755 ./node_modules/.bin/mocha
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-
-before_install:
-  - npm i -g npm@latest node-gyp node-pre-gyp codecov
+  
 
 install:
   - npm install

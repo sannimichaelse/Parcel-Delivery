@@ -1,9 +1,7 @@
 <p>
    <a href="https://codeclimate.com/github/sannimichaelse/Parcel-Delivery/maintainability"><img src="https://api.codeclimate.com/v1/badges/9362c0aa748e9823507d/maintainability" /></a>
-     <a style="padding:5px" href="https://coveralls.io/github/sannimichaelse/Parcel-Delivery?branch=develop">
-        <img src="https://coveralls.io/repos/github/sannimichaelse/Parcel-Delivery/badge.svg?branch=develop"
-            alt="build status">
-    </a>
+<a href='https://coveralls.io/github/sannimichaelse/Parcel-Delivery?branch=ch-161789196-host-app-heroku'><img src='https://coveralls.io/repos/github/sannimichaelse/Parcel-Delivery/badge.svg?branch=ch-161789196-host-app-heroku' alt='Coverage Status' />
+</a>
      <a style="padding:5px" href="https://travis-ci.org/sannimichaelse/Parcel-Delivery">
         <img src="https://api.travis-ci.org/sannimichaelse/Parcel-Delivery.svg?branch=develop"
             alt="build status">
@@ -65,8 +63,8 @@ npm run lint:dev
       <td>Create a new parcel</td>
   </tr>
  <tr>
-      <td>GET</td>
-      <td>/api/v1/parcels/:id/parcels</td>
+      <td>PUT</td>
+      <td>/api/v1/parcels/:parcelid/cancel</td>
       <td>Cancel a parcel by parcelid</td>
   </tr>
   <tr>
@@ -76,7 +74,7 @@ npm run lint:dev
   </tr>
   <tr>
         <td>GET</td>
-        <td>/api/v1/parcels/:id</td>
+        <td>/api/v1/parcels/:parcelid</td>
         <td>Get a parcel by parcelid</td>
   </tr>
   <tr>
@@ -97,7 +95,6 @@ npm run lint:dev
 - [Code-Climate](https://codeclimate.com/)
 - [Coveralls](https://coveralls.io/)
 - [Babel](https://babeljs.io/)
-
 
 ## Application stories on pivotal Tracker
 

@@ -11,7 +11,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "coveralls": "^3.0.1",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.1.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -20,7 +20,7 @@
     "eslint-plugin-react": "^7.8.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.1.1",
-    "nyc": "^11.7.3"
+    "nyc": "^11.9.0"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

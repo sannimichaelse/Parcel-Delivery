@@ -7,7 +7,7 @@
     "test": "nyc --reporter=text --reporter=lcov mocha ./server/tests/*  --timeout 15000 --recursive --exit || true",
     "start": "nodemon --exec babel-node --presets=env ./server/index.js",
     "lint:dev": "eslint \"server/**/*.js\" index.js --fix || true",
-    "coveralls": "nyc --reporter=lcov --reporter=text-lcov mocha ./server/tests/*  --timeout 15000 --recursive --exit || true",
+    "coveralls": "nyc --reporter=html --reporter=text mocha ./server/tests/*  --timeout 15000 --recursive --exit || true",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {

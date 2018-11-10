@@ -38,7 +38,7 @@ Testing is used at key checkpoints in the overall process to determine whether o
 ##### Server side tests
 
 ```bash
-npm run test:dev
+npm run test
 ```
 
 ## Linting

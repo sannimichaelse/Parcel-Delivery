@@ -8,6 +8,6 @@ router.post('/parcels/', Middleware.validateDummyData, dummyController.createPar
 router.get('/parcels/', dummyController.getAllParcels);
 router.get('/parcels/:parcelId', dummyController.findByParcelId);
 router.get('/users/:userId/parcels', dummyController.getParcelsByUserId);
-router.get('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
+router.put('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
 
 export default router;

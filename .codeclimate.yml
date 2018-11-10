@@ -15,4 +15,3 @@ exclude_patterns:
 - "node_modules/"
 - "UI/"
 - "coverage/"
-- "server/index.js"

@@ -40,20 +40,26 @@
 
     <div id="right-panel">
       <div id="inputs">
-        <div><h1><strong>Request Details</strong></h1></div>
+        <div>
+          <h1><strong>Request Details</strong></h1>
+        </div>
         <p>
           <b>Request Date</b>: May 22, 2018. 5:00pm <br /><b>Weight</b>: 20kg<br /><b
             >Amount</b
           >: #2000 <br /><b>Status</b> : Pending <br /><b>Start Point</b> =
-          'Hughes Avenue, Yaba 100001, Lagos, Nigeria' , {lat: 6.500, lng:
-          3.378}<br /><b>Destination</b> = '235 Ikorodu Rd, Ilupeju, Lagos,
-          Nigeria' , {lat: 6.554, lng: 3.366}
+          'Hughes Ave, Alagomeji-Yaba, Lagos, Nigeria' , { lat: 6.500197 , lng: 3.378939 }
+          <br /><b>Destination</b> = '235 Ikorodu Rd, Ilupeju, Lagos,
+          Nigeria' , { lat: 6.553824 , lng: 3.366473 }
         </p>
       </div>
-      <div><h1><strong>Results</strong></h1></div>
+      <div>
+        <h1><strong>Results</strong></h1>
+      </div>
       <div id="output"></div>
       <button class="button button2" id="reject">Cancel Order</button>
-      <a href="parcel.html"><button class="button" id="approve">Change Destination</button></a>
+      <a href="parcel.html"
+        ><button class="button" id="approve">Change Destination</button></a
+      >
     </div>
     <div id="map"></div>
     <br />
@@ -66,14 +72,13 @@
     <script src="assets/js/app.js"></script>
     <script>
       function initMap() {
-
         const bounds = new google.maps.LatLngBounds();
         const markersArray = [];
 
-        const origin1 = { lat: 6.5, lng: 3.378 };
-        const origin2 = "Hughes Avenue, Yaba 100001, Lagos, Nigeria";
+        const origin1 = { lat: 6.500197 , lng: 3.378939 };
+        const origin2 = "Hughes Ave, Alagomeji-Yaba, Lagos, Nigeria";
         const destinationA = "235 Ikorodu Rd, Ilupeju, Lagos, Nigeria";
-        const destinationB = { lat: 6.554, lng: 3.366 };
+        const destinationB = { lat: 6.553824 , lng: 3.366473 };
 
         const destinationIcon =
           "https://chart.googleapis.com/chart?" +
@@ -104,7 +109,7 @@
               const originList = response.originAddresses;
               const destinationList = response.destinationAddresses;
               const outputDiv = document.getElementById("output");
-              outputDiv.innerHTML = '';
+              outputDiv.innerHTML = "";
               deleteMarkers(markersArray);
 
               const showGeocodedAddressOnMap = function(asDestination) {
@@ -125,22 +130,23 @@
                 };
               };
 
-              for (const i = 0; i < originList.length; i++) {
+              for (let i = 0; i < originList.length; i++) {
                 const results = response.rows[i].elements;
                 geocoder.geocode(
                   { address: originList[i] },
                   showGeocodedAddressOnMap(false)
                 );
-                for (const j = 0; j < results.length; j++) {
+                for (let j = 0; j < results.length; j++) {
                   geocoder.geocode(
                     { address: destinationList[j] },
                     showGeocodedAddressOnMap(true)
                   );
                   outputDiv.innerHTML =
-                    '<span style="font-size:15px"><b>Start Point</b> : '+originList[i] +
+                    '<span style="font-size:15px"><b>Start Point</b> : ' +
+                    originList[i] +
                     '</span> <br> <span style="font-size:15px"><b>End Point</b> : ' +
                     destinationList[j] +
-                    '</span><br> <span style="font-size:15px"><b>Distance</b>  : '+
+                    '</span><br> <span style="font-size:15px"><b>Distance</b>  : ' +
                     results[j].distance.text +
                     ' </span> <br> <span style="font-size:15px"><b>Duration</b> : ' +
                     results[j].duration.text +
@@ -153,7 +159,7 @@
       }
 
       function deleteMarkers(markersArray) {
-        for (const i = 0; i < markersArray.length; i++) {
+        for (let i = 0; i < markersArray.length; i++) {
           markersArray[i].setMap(null);
         }
         markersArray = [];

@@ -3,6 +3,13 @@ const validateLogin = () => {
 };
 
 let login = document.getElementById("buttonSubmit");
+let cancel = document.getElementById('reject');
+if(cancel) cancel.addEventListener('click', () => {
+  let confirmation = confirm('Are you sure you want to cancel order');
+  if(confirmation){
+    alert('Order canceled successfully')
+  }
+})
 if (login) login.addEventListener("click", validateLogin);
 
 const validateSignup = () => {

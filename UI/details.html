@@ -1,70 +1,162 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Order and Process Parcels">
-    <meta name="author" content="Sanni Michael Tomiwa">
-    <title>Send IT | Parcel Details </title>
-    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-</head>
-
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Order and Process Parcels" />
+    <meta name="author" content="Sanni Michael Tomiwa" />
+    <title>Send IT | Parcel Details</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Sunflower:300"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <style></style>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div id="branding">
-                <h1>
-                    <a href="index.html">
-                        <span id="trackerText">Send<span id="highlighter">it</span></span>
-                    </a>
-                </h1>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="dashboard.html">Dashboard</a>
-                    </li>
-                    <li>
-                        <a class="current" href="parcel.html">Parcel</a>
-                    </li>
-                    <li>
-                        <a href="login.html"> Logout</a>
-                    </li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div id="branding">
+          <h1>
+            <a href="index.html">
+              <span id="trackerText">Send<span id="highlighter">it</span></span>
+            </a>
+          </h1>
         </div>
+        <nav>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a class="current" href="parcel.html">Parcel</a></li>
+            <li><a href="login.html"> Logout</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div class="whitee-login">
-        <br><br>
-        <div class="detailContainer">
-            <h1 id="quoteTitle">Parcel Name : Infinix HOT 4</h1>
-            <div id="userform" class="detailsForm">
-                <hr>
-                <p><span class="status-color">Request Date</span>: May 22, 2018. 5:00pm</p>
-                <hr>
-                <p> <b>Location</b>: Yaba</p>
-                <p> <b>Destination</b>: Sabo</p>
-                <p> <b>Weight</b>: 30kg</p>
-                <p> <b>Amount</b>: #1500</p>
-                <p> <b>Status</b>: Pending</p>
-                <br>
-                <!-- <button class="button" id="approve">Change Location</button> -->
-                <button class="button button2" id="reject">Cancel Order</button>
-                <button class="button" id="approve">Change Destination</button>
-            </div>
-        </div>
-    </div>
-    <footer>
+    <div id="right-panel">
+      <div id="inputs">
         <p>
-            <span id="trackerText">Send<span id="highlighter">it</span></span>
-            , Copyright &copy; 2018</p>
+          <b>Request Date</b>: May 22, 2018. 5:00pm <br /><b>Weight</b>: 20kg<br /><b
+            >Amount</b
+          >: #2000 <br /><b>Status</b> : Pending <br /><b>Start Point</b> =
+          'Hughes Avenue, Yaba 100001, Lagos, Nigeria' , {lat: 6.500, lng:
+          3.378}<br /><b>Destination</b> = '235 Ikorodu Rd, Ilupeju, Lagos,
+          Nigeria' , {lat: 6.554, lng: 3.366}
+        </p>
+      </div>
+      <div><h1><strong>Results</strong></h1></div>
+      <div id="output"></div>
+      <br />
+      <a href="parcel.html"><button id="detailsButton">New Parcel</button></a>
+    </div>
+    <div id="map"></div>
+    <br />
+    <footer>
+      <p>
+        <span id="trackerText">Send<span id="highlighter">it</span></span> ,
+        Copyright &copy; 2018
+      </p>
     </footer>
     <script src="assets/js/app.js"></script>
-</body>
+    <script>
+      function initMap() {
+        const bounds = new google.maps.LatLngBounds();
+        const markersArray = [];
 
+        const origin1 = { lat: 6.5, lng: 3.378 };
+        const origin2 = "Hughes Avenue, Yaba 100001, Lagos, Nigeria";
+        const destinationA = "235 Ikorodu Rd, Ilupeju, Lagos, Nigeria";
+        const destinationB = { lat: 6.554, lng: 3.366 };
+
+        const destinationIcon =
+          "https://chart.googleapis.com/chart?" +
+          "chst=d_map_pin_letter&chld=D|FF0000|000000";
+        const originIcon =
+          "https://chart.googleapis.com/chart?" +
+          "chst=d_map_pin_letter&chld=O|FFFF00|000000";
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 55.53, lng: 9.4 },
+          zoom: 10
+        });
+        const geocoder = new google.maps.Geocoder();
+
+        const service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+          {
+            origins: [origin1, origin2],
+            destinations: [destinationA, destinationB],
+            travelMode: "DRIVING",
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+          },
+          function(response, status) {
+            if (status !== "OK") {
+              alert("Error was: " + status);
+            } else {
+              const originList = response.originAddresses;
+              const destinationList = response.destinationAddresses;
+              const outputDiv = document.getElementById("output");
+              outputDiv.innerHTML = '';
+              deleteMarkers(markersArray);
+
+              const showGeocodedAddressOnMap = function(asDestination) {
+                const icon = asDestination ? destinationIcon : originIcon;
+                return function(results, status) {
+                  if (status === "OK") {
+                    map.fitBounds(bounds.extend(results[0].geometry.location));
+                    markersArray.push(
+                      new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        icon: icon
+                      })
+                    );
+                  } else {
+                    alert("Geocode was not successful due to: " + status);
+                  }
+                };
+              };
+
+              for (const i = 0; i < originList.length; i++) {
+                const results = response.rows[i].elements;
+                geocoder.geocode(
+                  { address: originList[i] },
+                  showGeocodedAddressOnMap(false)
+                );
+                for (const j = 0; j < results.length; j++) {
+                  geocoder.geocode(
+                    { address: destinationList[j] },
+                    showGeocodedAddressOnMap(true)
+                  );
+                  outputDiv.innerHTML =
+                    '<span style="font-size:15px"><b>Start Point</b> : '+originList[i] +
+                    '</span> <br> <span style="font-size:15px"><b>End Point</b> : ' +
+                    destinationList[j] +
+                    '</span><br> <span style="font-size:15px"><b>Distance</b>  : '+
+                    results[j].distance.text +
+                    ' </span> <br> <span style="font-size:15px"><b>Duration</b> : ' +
+                    results[j].duration.text +
+                    "</span></b>";
+                }
+              }
+            }
+          }
+        );
+      }
+
+      function deleteMarkers(markersArray) {
+        for (const i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);
+        }
+        markersArray = [];
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdq3B2pNW6tzShvaVQ1TDmon1dBSw0KtY&callback=initMap"></script>
+  </body>
 </html>

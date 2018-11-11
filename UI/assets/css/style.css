@@ -30,7 +30,7 @@ ul {
   padding: 0;
 }
 
-#buttonSubmit{
+#buttonSubmit {
   width: 45%;
   background: #196282;
   color: #ffffff;
@@ -39,8 +39,21 @@ ul {
   font-size: 18px;
   margin: 31px 136px;
 }
+#detailsButton{
+  width: 40%;
+  background: #196282;
+  color: #ffffff;
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+}
 
-#buttonSubmit:hover{
+#detailsButton:hover{
+  background: #78a5b8;
+  color: #ffffff;
+}
+
+#buttonSubmit:hover {
   background: #78a5b8;
   color: #ffffff;
 }
@@ -105,7 +118,7 @@ ul {
   color: #ffffff;
   margin-bottom: 0px;
   height: 600px;
-  margin: 0 ;
+  margin: 0;
 }
 
 .whitee-login {
@@ -359,8 +372,8 @@ tr:hover {
   background-color: rgb(238, 104, 104);
 }
 
-.button2:hover{
-  background-color:lightpink;
+.button2:hover {
+  background-color: lightpink;
 }
 
 .button3 {
@@ -507,7 +520,7 @@ th, td {
   text-align: center;
 }
 
-h1.allparcels, h1.processing,  h1.delivered , h1.declined, h1.available{
+h1.allparcels, h1.processing, h1.delivered, h1.declined, h1.available {
   font-size: 30px;
   font-weight: bold;
 }
@@ -543,30 +556,31 @@ h1.allparcels, h1.processing,  h1.delivered , h1.declined, h1.available{
   padding: 10px;
 }
 
-.white-bg{
-  background:white
+.white-bg {
+  background: white
 }
 
-#addIcon{
-  text-decoration:none;
-  color:#f65383
+#addIcon {
+  text-decoration: none;
+  color: #f65383
 }
 
-#addIcon:hover{
-  text-decoration:none;
-  color:#f17a9e
+#addIcon:hover {
+  text-decoration: none;
+  color: #f17a9e
 }
 
-#clearAlignment{
+#clearAlignment {
   clear: both;
 }
 
-#tableContainer{
-  overflow-x:auto;
+#tableContainer {
+  overflow-x: auto;
 }
 
-.detailsForm{
-  color: black;text-align: center;
+.detailsForm {
+  color: black;
+  text-align: center;
 }
 
 .select-button {
@@ -576,4 +590,43 @@ h1.allparcels, h1.processing,  h1.delivered , h1.declined, h1.available{
   border-radius: 3px;
   box-sizing: border-box;
   font-size: 15px;
+}
+
+#right-panel {
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+  width: 50%;
+}
+
+#right-panel {
+  float: right;
+  width: 48%;
+  padding-left: 2%;
+}
+
+#output {
+  font-size: 11px;
 }

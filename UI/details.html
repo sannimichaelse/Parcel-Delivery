@@ -40,6 +40,7 @@
 
     <div id="right-panel">
       <div id="inputs">
+        <div><h1><strong>Request Details</strong></h1></div>
         <p>
           <b>Request Date</b>: May 22, 2018. 5:00pm <br /><b>Weight</b>: 20kg<br /><b
             >Amount</b
@@ -51,7 +52,7 @@
       </div>
       <div><h1><strong>Results</strong></h1></div>
       <div id="output"></div>
-      <br />
+      
       <a href="parcel.html"><button id="detailsButton">New Parcel</button></a>
     </div>
     <div id="map"></div>
@@ -65,6 +66,7 @@
     <script src="assets/js/app.js"></script>
     <script>
       function initMap() {
+
         const bounds = new google.maps.LatLngBounds();
         const markersArray = [];
 

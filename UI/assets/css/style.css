@@ -1,5 +1,5 @@
 * {
-  font-family: 'Sunflower', sans-serif;
+  font-family: 'Maven Pro', sans-serif !important;
 }
 
 body {
@@ -190,6 +190,7 @@ header #branding h1 {
 header nav {
   float: right;
   margin-top: 10px;
+  /* font-size: 20px */
 }
 
 header #highlight, nav .current {

@@ -11,9 +11,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-// Remember to set this in your enviroment variables later
-// app.set('superSecret', 'helloword');
-// api versioning;
 app.use('/api/v1', apiVersion1);
 // app.use('/api/v2', apiVersion2);
 app.get('/', (req, res) => res.send({ ok: true, message: 'Welcome to Send IT', baseurl: '/api/{version}' }).status(200));

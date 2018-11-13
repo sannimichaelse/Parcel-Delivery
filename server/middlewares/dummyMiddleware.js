@@ -16,13 +16,11 @@ class dummyMiddleware {
    */
   static validateDummyData(req, res, next) {
     Joi.validate(req.body, dummySchema)
-      .then(value => next())
-      .catch((err) => {
-        return res.status(400).json({
-          responseCode: '01',
-          responseMessage: err.details[0].message,
-        });
-      });
+      .then(() => next())
+      .catch(err => res.status(400).json({
+        responseCode: '01',
+        responseMessage: err.details[0].message,
+      }));
   }
 }
 

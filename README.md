@@ -102,10 +102,12 @@ npm run lint:dev
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2213242)
 
-<!-- ## View app here
+## Heroku
 
-[ui](https://tomiwatech.github.io/Maintenance-Tracker/UI/)
+[send-it](https://senditt.herokuapp.com/) 
 
-## Find Api on heroku
+## Github Pages App
 
-[maintenance-tracker](https://maintenance-trackerr.herokuapp.com/) -->
+[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)
+
+

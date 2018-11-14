@@ -15,7 +15,7 @@ const email = Joi.string()
 const username = Joi.string()
   .min(1)
   .required();
-const registered = Joi.string()
+const password = Joi.string()
   .min(1)
   .required();
 
@@ -23,10 +23,15 @@ const registered = Joi.string()
 const signupSchema = {
   username,
   lastname,
-  registered,
   othername,
   firstname,
   email,
+  password,
 };
 
-export default signupSchema;
+const loginSchema = {
+  email,
+  password,
+};
+
+export { signupSchema, loginSchema };

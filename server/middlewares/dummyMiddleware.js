@@ -18,8 +18,8 @@ class dummyMiddleware {
     Joi.validate(req.body, dummySchema)
       .then(() => next())
       .catch(err => res.status(400).json({
-        responseCode: '01',
-        responseMessage: err.details[0].message,
+        status: 400,
+        statusMessage: err.details[0].message,
       }));
   }
 }

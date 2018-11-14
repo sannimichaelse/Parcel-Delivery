@@ -1,5 +1,6 @@
 * {
   font-family: 'Maven Pro', sans-serif !important;
+  margin: 0;
 }
 
 body {
@@ -7,6 +8,11 @@ body {
   background-color: #f4f4f4;
   padding: 0;
   margin: 0;
+  min-height: 100%;
+}
+
+html{
+  height: 100%;
 }
 
 /* Global */
@@ -15,6 +21,7 @@ body {
   width: 80%;
   margin: 0 auto;
   overflow: hidden;
+  padding: 10px;
 }
 
 .text-center {
@@ -241,6 +248,7 @@ header a:hover {
 
 #backgroundImg p {
   font-size: 20px;
+  padding: 10px;
 }
 
 /* Boxes */
@@ -631,4 +639,8 @@ html, body {
 
 #output {
   font-size: 11px;
+}
+
+.p-t-12{
+  padding-top: 12px
 }

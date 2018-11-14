@@ -191,12 +191,12 @@ header #branding {
 }
 
 header #branding h1 {
-  margin: 0;
+  margin-top: -8px;
 }
 
 header nav {
   float: right;
-  margin-top: 10px;
+  margin-top: 4px;
   /* font-size: 20px */
 }
 
@@ -248,7 +248,7 @@ header a:hover {
 
 #backgroundImg p {
   font-size: 20px;
-  padding: 10px;
+  padding: 15px;
 }
 
 /* Boxes */
@@ -292,7 +292,7 @@ section>#admin-bar, #login-bar, #signup-bar {
 
 .userform {
   width: 37%;
-  margin: -30px auto;
+  margin: 0px auto;
   border: 1px solid grey;
 }
 
@@ -465,7 +465,7 @@ textarea {
 }
 
 .dashboard {
-  margin: 0 100px 0 100px;
+  margin: 25px 100px 0 100px;
   height: auto;
 }
 
@@ -528,6 +528,7 @@ th, td {
   color: #196282;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
 }
 
 h1.allparcels, h1.processing, h1.delivered, h1.declined, h1.available {
@@ -539,24 +540,28 @@ h1.allparcels, h1.processing, h1.delivered, h1.declined, h1.available {
   color: orange;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
 }
 
 .available {
   color: black;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
 }
 
 .delivered {
   color: green;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
 }
 
 .declined {
   color: red;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
 }
 
 .detailContainer {
@@ -643,4 +648,8 @@ html, body {
 
 .p-t-12{
   padding-top: 12px
+}
+
+#welcome{
+  margin-top: 20px;
 }

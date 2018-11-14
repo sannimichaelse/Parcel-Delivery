@@ -96,7 +96,7 @@ npm run lint:dev
 - [Coveralls](https://coveralls.io/)
 - [Babel](https://babeljs.io/)
 
-## Application stories on pivotal Tracker
+## Pivotal Tracker
 
 ---
 
@@ -106,7 +106,7 @@ npm run lint:dev
 
 [send-it](https://senditt.herokuapp.com/) 
 
-## Github Pages App
+## Github Pages
 
 [UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)
 

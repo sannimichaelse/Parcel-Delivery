@@ -17,9 +17,9 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('responseMessage')
+            .property('statusMessage')
             .to.equals('Successfully fetched all parcels');
-          res.body.should.have.property('responseCode').to.equals('00');
+          res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('array');
           done();
         });
@@ -32,9 +32,9 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('responseMessage')
+            .property('statusMessage')
             .to.equals('Parcel found');
-          res.body.should.have.property('responseCode').to.equals('00');
+          res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('object');
           done();
         });
@@ -48,8 +48,8 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
-            responseCode: '01',
-            responseMessage: 'Parcel not found'
+            status: 400,
+            statusMessage: 'Parcel not found',
           });
           done();
         });
@@ -63,9 +63,9 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('responseMessage')
+            .property('statusMessage')
             .to.equals('Parcel found');
-          res.body.should.have.property('responseCode').to.equals('00');
+          res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('array');
           done();
         });
@@ -79,9 +79,9 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.have
-            .property('responseMessage')
+            .property('statusMessage')
             .to.equals('Parcel with userID not found');
-          res.body.should.have.property('responseCode').to.equals('01');
+          res.body.should.have.property('status').to.equals(400);
 
           done();
         });
@@ -101,17 +101,17 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           username: 'sullivan',
           userId: '5',
           parcelId: '443215',
-          parcelWeigth: '122kg',
+          parcelWeight: '122kg',
           parcelName: 'Tecno Camon C9',
           parcelDestination: 'Onitsha',
           parcelLocation: 'Lagos',
-          parcelStatus: 'progress'
+          parcelStatus: 'progress',
         })
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.deep.equal({
-            responseCode: '00',
-            responseMessage: 'New parcel created successfully'
+            status: 201,
+            statusMessage: 'New parcel created successfully',
           });
           done();
         });
@@ -123,7 +123,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         username: 'sullivan',
         userId: '5',
         parcelId: '443215',
-        parcelWeigth: '122kg',
+        parcelWeight: '122kg',
         parcelName: 'Tecno Camon C9',
         parcelDestination: 'Onitsha',
         parcelLocation: 'Lagos',
@@ -137,8 +137,8 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
-            responseCode: '01',
-            responseMessage: "\"uuid\" is not allowed to be empty"
+            status: 400,
+            statusMessage: "\"uuid\" is not allowed to be empty",
           });
           done();
         });
@@ -149,7 +149,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         username: 'sullivan',
         userId: '5',
         parcelId: '443215',
-        parcelWeigth: '122kg',
+        parcelWeight: '122kg',
         parcelName: 'Tecno Camon C9',
         parcelDestination: 'Onitsha',
         parcelLocation: 'Lagos',
@@ -162,8 +162,8 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
-            responseCode: '01',
-            responseMessage: "\"uuid\" is required"
+            status: 400,
+            statusMessage: "\"uuid\" is required",
           });
           done();
         });
@@ -175,7 +175,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         username: 'sullivan',
         userId: '5',
         parcelId: '443215',
-        parcelWeigth: '122kg',
+        parcelWeight: '122kg',
         parcelName: 'Tecno Camon C9',
         parcelDestination: 'Onitsha',
         parcelLocation: 'Lagos',
@@ -189,8 +189,8 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
-            responseCode: '01',
-            responseMessage:
+            status: 400,
+            statusMessage:
               'Parcel Already Exists. Make sure uuid and parcelId are unique'
           });
           done();
@@ -210,9 +210,9 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('responseMessage')
+            .property('statusMessage')
             .to.equals('Parcel Order Canceled');
-          res.body.should.have.property('responseCode').to.equals('00');
+          res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('object');
           done();
         });

@@ -12,7 +12,7 @@ const userId = Joi.string()
 const parcelId = Joi.string()
   .min(1)
   .required();
-const parcelWeigth = Joi.string()
+const parcelWeight = Joi.string()
   .min(1)
   .required();
 const parcelDestination = Joi.string()
@@ -33,7 +33,7 @@ const dummySchema = {
   username,
   userId,
   parcelId,
-  parcelWeigth,
+  parcelWeight,
   parcelDestination,
   parcelLocation,
   parcelName,

@@ -17,15 +17,15 @@ class dummyController {
     const position = helperClass.findParcelByUser(dataStore, uuid, parcelId);
     if (position > -1) {
       return res.status(400).json({
-        responseCode: '01',
-        responseMessage:
+        status: 400,
+        statusMessage:
           'Parcel Already Exists. Make sure uuid and parcelId are unique',
       });
     }
     dataStore.push(req.body);
     return res.status(201).json({
-      responseCode: '00',
-      responseMessage: 'New parcel created successfully',
+      status: 201,
+      statusMessage: 'New parcel created successfully',
     });
   }
   /**
@@ -40,15 +40,15 @@ class dummyController {
     const position = helperClass.findUserByParcelId(dataStore, parcelId);
     if (position > -1) {
       return res.status(200).json({
-        responseCode: '00',
-        responseMessage: 'Parcel found',
+        status: 200,
+        statusMessage: 'Parcel found',
         data: dataStore[position],
       });
     }
 
     return res.status(400).json({
-      responseCode: '01',
-      responseMessage: 'Parcel not found',
+      status: 400,
+      statusMessage: 'Parcel not found',
     });
   }
   /**
@@ -60,8 +60,8 @@ class dummyController {
    */
   static getAllParcels(req, res) {
     return res.status(200).json({
-      responseCode: '00',
-      responseMessage: 'Successfully fetched all parcels',
+      status: 200,
+      statusMessage: 'Successfully fetched all parcels',
       data: dataStore,
     });
   }
@@ -80,13 +80,13 @@ class dummyController {
 
     if (result === undefined || result.length === 0) {
       return res.status(400).json({
-        responseCode: '01',
-        responseMessage: 'Parcel with userID not found',
+        status: 400,
+        statusMessage: 'Parcel with userID not found',
       });
     }
     return res.status(200).json({
-      responseCode: '00',
-      responseMessage: 'Parcel found',
+      status: 200,
+      statusMessage: 'Parcel found',
       data: result,
     });
   }
@@ -104,14 +104,14 @@ class dummyController {
     if (position > -1) {
       dataStore[position].parcelStatus = 'Canceled';
       return res.status(200).json({
-        responseCode: '00',
-        responseMessage: 'Parcel Order Canceled',
+        status: 200,
+        statusMessage: 'Parcel Order Canceled',
         data: dataStore[position],
       });
     }
     return res.status(400).json({
-      responseCode: '01',
-      responseMessage: 'parcel with this id is not found',
+      status: 400,
+      statusMessage: 'parcel with this id is not found',
     });
   }
 }

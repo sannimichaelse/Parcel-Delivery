@@ -2,7 +2,6 @@
 import bcrypt from 'bcrypt';
 import moment from 'moment';
 import db from '../connection/connect';
-import { stat } from 'fs';
 
 const saltRounds = 10;
 const obj = {};
@@ -42,6 +41,32 @@ class queryProvider {
     });
   }
   /**
+   * Findby by parcelID
+   * @staticmethod
+   * @param  {string} id- Request object
+   * @return {string} res
+   */
+  static findByParcelIdQuery(id) {
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM parcels WHERE id = '${id}'`;
+      db.query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            const response = 'Parcel does not exist';
+            reject(response);
+          } else if (result.rowCount >= 1) {
+            obj.rowCount = result.rowCount;
+            obj.rows = result.rows;
+            resolve(obj);
+          }
+        })
+        .catch(() => {
+          const error = 'Error Finding User';
+          reject(error);
+        });
+    });
+  }
+  /**
    * save new user
    * @staticmethod
    * @param  {string} body - Request object
@@ -49,8 +74,8 @@ class queryProvider {
    */
   static saveUserQuery(body) {
     const {
-      firstname, lastname, othername, email, username, password,
-    } = body;
+ firstname, lastname, othername, email, username, password 
+} = body;
 
     const d = new Date();
     const is_admin = false;
@@ -128,7 +153,7 @@ class queryProvider {
     } = body;
 
     const d = new Date();
-    console.log(`Logged-in User ${ userid}`);
+    console.log(`Logged-in User ${userid}`);
     const sentOn = moment(d).format('YYYY-MM-DD HH:mm:ss');
     const deliveredOn = moment(d).format('YYYY-MM-DD HH:mm:ss');
 
@@ -147,6 +172,37 @@ class queryProvider {
         })
         .catch((e) => {
           reject(e);
+        });
+    });
+  }
+  /**
+   * Update Parcel Destination Query
+   * @staticmethod
+   * @param  {string} parcelid - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static updateParcelDestinationQuery(parcelid, body) {
+    const { destination } = body;
+    const exception = 'delivered';
+    return new Promise((resolve, reject) => {
+      const queryBody = `UPDATE parcels SET destination = '${destination}' WHERE id = '${parcelid}' AND status <> '${exception}'`;
+      db.query(queryBody)
+        .then((result) => {
+          if (result.rowCount >= 1) {
+            this.findByParcelIdQuery(parcelid).then((response) => {
+              resolve(response);
+            }).catch((error) => {
+              reject(error);
+            });
+          } else if (result.rowCount === 0) {
+            const response = 'Parcel Id not found. Might have been delivered';
+            reject(response);
+          }
+        })
+        .catch((e) => {
+          const response = 'Error Updating Parcel';
+          reject(response);
         });
     });
   }

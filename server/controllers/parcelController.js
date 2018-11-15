@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import parcelService from '../services/parcelService';
 
 /**
@@ -13,35 +14,33 @@ class parcelController {
  * @return {json} res.json
  */
   static createParcel(req, res) {
+    const userId = req.decoded.data;
     parcelService
-      .saveParcel(req.body, req.decoded.data)
+      .saveParcel(req.body, userId)
       .then(() => res.status(201).json({
         statusMessage: 'New parcel created successfully',
       }))
-      .catch((err) => {
-        console.log(err);
-        return res.status(400).json({
-          statusMessage: 'Could not create parcel',
-        });
-      });
+      .catch(err => res.status(400).json({
+        statusMessage: 'Could not create parcel',
+      }));
   }
   /**
- * Creates a new parcel
+ * View all parcels created by user
  * @staticmethod
  * @param  {object} req - user object
  * @param {object} res - Response object
  * @return {json} res.json
  */
   static viewAllParcels(req, res) {
+    const userId = req.decoded.data;
     parcelService
-      .viewAll(req.decoded.data)
+      .viewAll(userId)
       .then(response => res.status(201).json({
         status: 201,
         statusMessage: 'Successfully fetched all user parcels',
         data: response,
       }))
       .catch((err) => {
-        console.log(err);
         if (err.responseMessage === 'Parcels Array Empty') {
           return res.status(200).json({
             status: 200,
@@ -51,9 +50,32 @@ class parcelController {
         }
         return res.status(400).json({
           status: 400,
-          statusMessage: 'Could not fetch all parcel',
+          statusMessage: 'Could not fetch all parcels',
         });
       });
+  }
+  /**
+ * Update parcel Destination
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static updateParcelDestination(req, res) {
+    const parcelId = req.params.id;
+    const data = req.body;
+    console.log(`${parcelId}${data}`);
+    parcelService
+      .updateDestination(parcelId, data)
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Parcel Destination Updated Successfully',
+        data: response,
+      }))
+      .catch(err => res.status(400).json({
+        status: 400,
+        statusMessage: err,
+      }));
   }
 }
 

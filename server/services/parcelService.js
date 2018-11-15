@@ -35,6 +35,21 @@ class parcelService {
         .catch(err => reject(err));
     });
   }
+  /**
+   * update parcel destination
+   * @staticmethod
+   * @param  {string} parcelId - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static updateDestination(parcelId, body) {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .updateParcelDestinationQuery(parcelId, body)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
 }
 
 export default parcelService;

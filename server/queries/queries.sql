@@ -14,30 +14,18 @@ CREATE TABLE users
     is_admin BOOLEAN NOT NULL
 );
 
+-- CREATE PARCEL TABLE
 
--- INSERT INTO TABLE
-
-INSERT INTO 
-       users
-    (firstname, lastname, othername, email,  , phone_number, image_url,password,salt, oauth_type,oauth_id,address,state_code,city_code,country_code,updated_at,added_at,active,suspended_at)
-VALUES
-    ('Michael', 'Sanni', 'male', '1996/7/5', 'sannimichaelse@gmail.com', '09090908094', 'jfjtfdd', 'kd4dk3dk', 'dg4dddf', 'signup', '1232', '13,hughes Avenue Sabo', '12ase', 'jdj33', 'j4jdd', '454e34', '34dr34', 'true', 'jjd34');
-
-
--- {
---   "firstname":"Sanni",
---   "lastname":"Michael",
---   "gender":"male",
---   "date_of_birth":"07/05/1996",
---   "phone_number":"09090908094",
---   "image_url":"https://web.whatsapp.com/",
---   "password":"tomiwa5259",
---   "oauth_type":"signup",
---   "oauth_id":"223",
---   "state_code":"3333",
---   "city_code":"idfg453",
---   "country_code":"kdk4",
---   "address":"13 Hughes Avenue Sabo Yaba",
---   "email":"sannimichaeltomi@gmail.com",
---   "fullname":"Sanni Michael Tomiwa"
--- }
+CREATE TABLE parcels
+(
+    id SERIAL PRIMARY KEY,
+    user_id VARCHAR (50) NOT NULL,
+    parcel VARCHAR (50) NOT NULL,
+    weight VARCHAR (50) NOT NULL,
+    weightMetric VARCHAR (50) UNIQUE NOT NULL,
+    sent_on VARCHAR (50) NOT NULL,
+    delivered_on VARCHAR (50) NOT NULL,
+    status VARCHAR (55) NOT NULL,
+    location VARCHAR (50) NOT NULL,
+    destination VARCHAR (55) NOT NULL
+);

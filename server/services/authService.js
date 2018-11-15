@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import config from '../config/index';
 import crypto from '../utilities/crypto';
 import queryProvider from '../queries/index';
-import db from '../connection/connect';
 
 /**
  * @exports

@@ -11,10 +11,10 @@ class parcelService {
    * @param  {string} id - Request object
    * @return {string} res
    */
-  static findByParcelId(id) {
+  static viewAll(id) {
     return new Promise((resolve, reject) => {
       queryProvider
-        .findByParcelId(id)
+        .findAllUserParcels(id)
         .then(response => resolve(response))
         .catch(err => reject(err));
     });

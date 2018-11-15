@@ -49,8 +49,8 @@ class queryProvider {
    */
   static saveUserQuery(body) {
     const {
- firstname, lastname, othername, email, username, password 
-} = body;
+      firstname, lastname, othername, email, username, password,
+    } = body;
 
     const d = new Date();
     const is_admin = false;
@@ -83,18 +83,18 @@ class queryProvider {
     });
   }
   /**
-   * Find user by email
+   * Find All parcels created by user
    * @staticmethod
    * @param  {string} id - Request object
    * @return {string} res
    */
-  static findByParcelId(id) {
+  static findAllUserParcels(id) {
     return new Promise((resolve, reject) => {
-      const query = `SELECT * FROM users WHERE email = '${id}'`;
+      const query = `SELECT * FROM parcels WHERE user_id = '${id}'`;
       db.query(query)
         .then((result) => {
           if (result.rowCount === 0) {
-            err.responseMessage = 'user does not exist';
+            err.responseMessage = 'Parcels Array Empty';
             err.responseCode = '01';
             reject(err);
           } else if (result.rowCount >= 1) {
@@ -104,7 +104,7 @@ class queryProvider {
           }
         })
         .catch(() => {
-          err.responseMessage = 'Error Finding User';
+          err.responseMessage = 'Error Finding All User Parcels';
           err.responseCode = '02';
           reject(err);
         });
@@ -128,7 +128,7 @@ class queryProvider {
     } = body;
 
     const d = new Date();
-    console.log('Logged-in User ' +userid);
+    console.log(`Logged-in User ${ userid}`);
     const sentOn = moment(d).format('YYYY-MM-DD HH:mm:ss');
     const deliveredOn = moment(d).format('YYYY-MM-DD HH:mm:ss');
 

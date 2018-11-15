@@ -20,5 +20,6 @@ router.put('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
 router.post('/auth/signup', authMiddleware.validateSignup, authController.createUser);
 router.post('/auth/login', authMiddleware.validateLogin, authController.loginUser);
 router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.validateParcel, parcelController.createParcel);
+router.get('/auth/parcel/view', tokenMiddleware.verifyToken, parcelController.viewAllParcels);
 
 export default router;

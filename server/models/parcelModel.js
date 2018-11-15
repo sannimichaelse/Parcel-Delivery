@@ -9,9 +9,7 @@ const parcel = Joi.string()
 const weightMetric = Joi.string()
   .min(1)
   .required();
-const status = Joi.string()
-  .min(1)
-  .required();
+const status = Joi.string().valid(['progress', 'canceled', 'delivered']).required();
 const location = Joi.string()
   .min(1)
   .required();
@@ -28,5 +26,9 @@ const parcelSchema = {
   destination,
 };
 
+const updateParcelDestinationSchema = {
+  destination,
+};
 
-export default parcelSchema;
+
+export { parcelSchema, updateParcelDestinationSchema };

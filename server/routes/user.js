@@ -19,7 +19,10 @@ router.put('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
 // User Routes
 router.post('/auth/signup', authMiddleware.validateSignup, authController.createUser);
 router.post('/auth/login', authMiddleware.validateLogin, authController.loginUser);
+
+// Parcel Routes
 router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.validateParcel, parcelController.createParcel);
-router.get('/auth/parcel/view', tokenMiddleware.verifyToken, parcelController.viewAllParcels);
+router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelController.viewAllParcels);
+router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
 
 export default router;

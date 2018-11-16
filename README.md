@@ -9,9 +9,48 @@
    <a href="https://codeclimate.com/github/sannimichaelse/Parcel-Delivery/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9362c0aa748e9823507d/test_coverage" /></a>
 </p>
 
-## SendIT
+# SendIT
 
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
+
+### Required Features
+* Users can create an account and log in
+* Users can create a parcel delivery order.
+* Users can change the destination of a parcel delivery order.
+* Users can cancel a parcel delivery order.
+* Users can see the details of a delivery order.
+* The user can view all parcel delivery orders he/she has created.
+* Admin can change the status of a parcel delivery order.
+* Admin can change the status and present location of a parcel delivery order.
+* Admin can view all parcel delivery orders in the application.
+* Admin can change the present location of a parcel delivery order
+
+### Optional Features(Extra Credit)
+* The user gets real-time email notification when Admin changes the status of their parcel.
+* The user gets real-time email notification when Admin changes the present location of
+their parcel.
+
+## Getting Started
+Instructions to get the project running successfully on your website
+
+## Prerequisites
+You need to have these installed before cloning the project
+* NodeJS (atleast v8.11.2) - https://nodejs.org/en/download/
+* Postgres - https://www.postgresql.org/download/
+
+
+## Technologies Used
+- [Eslint](https://eslint.org/)
+- [TravisCI](https://travis-ci.org/)
+- [Nodejs](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Code-Climate](https://codeclimate.com/)
+- [Coveralls](https://coveralls.io/)
+- [Babel](https://babeljs.io/)
+
+## Coding Style
+[Airbnb JavaScript style guide](https://github.com/airbnb/javascript)
+
 
 ## Installation
 
@@ -84,30 +123,26 @@ npm run lint:dev
   </tr>
 
 </table>
-<br/>
+<br>
 
-# Technologies
+## License
+This project is licensed under the MIT License 
 
-- [Eslint](https://eslint.org/)
-- [TravisCI](https://travis-ci.org/)
-- [Nodejs](https://nodejs.org/en/)
-- [Express](https://expressjs.com/)
-- [Code-Climate](https://codeclimate.com/)
-- [Coveralls](https://coveralls.io/)
-- [Babel](https://babeljs.io/)
+## Author
+[Sanni Michael Tomiwa](https://sannimichaelse.github.io)
 
-## Pivotal Tracker
+## Acknowledgements
+[Andela](https://andela.com)<br>
+[Scotch.io](https://scotch.io)<br>
+[FreeCodeCamp](https://medium.freecodecamp.com)<br>
+[Google](https://google.com)<br>
+[Postgrestutorial.com](http://www.postgresqltutorial.com/)
 
----
+## Acces running application
+[Heroku](https://senditt.herokuapp.com/)<br>
+[Docs](https://senditt.herokuapp.com/docs)<br>
+[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)<br>
+[Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2213242)
 
-[Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2213242)
-
-## Heroku
-
-[send-it](https://senditt.herokuapp.com/) 
-
-## Github Pages
-
-[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)
 
 

@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
 import queryProvider from '../queries/index';
+import NotificationService from '../services/notificationService';
+import AuthService from '../services/authService';
 
 /**
  * @exports
@@ -68,13 +71,36 @@ class parcelService {
    * @staticmethod
    * @param  {string} parcelId - Request object
    * @param  {string} body - Request object
+   * @param  {string} host - Request object
    * @return {string} res
    */
-  static updateStatus(parcelId, body) {
+  static updateStatus(parcelId, body, host) {
     return new Promise((resolve, reject) => {
       queryProvider
         .updateParcelStatusQuery(parcelId, body)
-        .then(response => resolve(response))
+        .then((response) => {
+          resolve(response);
+          queryProvider
+            .findByParcelIdQuery(parcelId)
+            .then((res) => {
+              const userid = res.rows[0].user_id;
+              queryProvider
+                .findUserByIdQuery(userid)
+                .then((resp) => {
+                  console.log(resp);
+                  const emailBody = `Dear ${resp.rows[0].firstname}, Your Parcel Status with id ${response.rows[0].id} has been changed to ${response.rows[0].status}`;
+                  console.log(emailBody);
+                  const userEmailAddress = resp.rows[0].email;
+                  NotificationService.sendMail(userEmailAddress, host);
+                })
+                .catch((err) => {
+                  console.log(err);
+                  const e = 'Could not Send Mail';
+                  reject(e);
+                });
+            })
+            .catch(err => reject(err));
+        })
         .catch(err => reject(err));
     });
   }

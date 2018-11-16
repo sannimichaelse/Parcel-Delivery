@@ -23,6 +23,20 @@ class authService {
         .catch(err => reject(err));
     });
   }
+  /**
+   * Find user by id
+   * @staticmethod
+   * @param  {string} id - Request object
+   * @return {string} res
+   */
+  static findUserById(id) {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .findUserByIdQuery(id)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
 
   /**
    * save new user

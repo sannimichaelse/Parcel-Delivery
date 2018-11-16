@@ -14,7 +14,20 @@ class parcelService {
   static viewAll(id) {
     return new Promise((resolve, reject) => {
       queryProvider
-        .findAllUserParcels(id)
+        .findUserParcelsQuery(id)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+  /**
+   * view all parcels created
+   * @staticmethod
+   * @return {string} res
+   */
+  static viewAllCreated() {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .findAllParcelsQuery()
         .then(response => resolve(response))
         .catch(err => reject(err));
     });

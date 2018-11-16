@@ -23,10 +23,11 @@ router.post('/auth/login', authMiddleware.validateLogin, authController.loginUse
 // Admin Routes
 router.put('/auth/parcel/:id/status', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelStatus, parcelController.updateParcelStatus);
 router.put('/auth/parcel/:id/location', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelLocation, parcelController.updateParcelLocation);
+router.get('/auth/admin/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelController.viewAllParcels);
 
 // Parcel Routes
 router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateParcel, parcelController.createParcel);
-router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.viewAllParcels);
+router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.viewUserParcels);
 router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
 
 export default router;

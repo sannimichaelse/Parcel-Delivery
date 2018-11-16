@@ -20,9 +20,13 @@ router.put('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
 router.post('/auth/signup', authMiddleware.validateSignup, authController.createUser);
 router.post('/auth/login', authMiddleware.validateLogin, authController.loginUser);
 
+// Admin Routes
+router.put('/auth/parcel/:id/status', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelStatus, parcelController.updateParcelStatus);
+router.put('/auth/parcel/:id/location', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelLocation, parcelController.updateParcelLocation);
+
 // Parcel Routes
-router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.validateParcel, parcelController.createParcel);
-router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelController.viewAllParcels);
-router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
+router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateParcel, parcelController.createParcel);
+router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.viewAllParcels);
+router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
 
 export default router;

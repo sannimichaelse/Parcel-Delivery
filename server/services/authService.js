@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import jwt from 'jsonwebtoken';
 import config from '../config/index';
 import crypto from '../utilities/crypto';
@@ -48,12 +49,11 @@ class authService {
     return new Promise((resolve, reject) => {
       this.findUserByEmail(email)
         .then((res) => {
-          const dbpassword = res.rows[0].password;
-          const userid = res.rows[0].id;
+          const { password, id, is_admin } = res.rows[0];
           crypto
-            .compare(userpassword, dbpassword)
+            .compare(userpassword, password)
             .then(() => {
-              const token = jwt.sign({ data: userid }, config.jwtSecretKey, {
+              const token = jwt.sign({ user_id: id, is_admin }, config.jwtSecretKey, {
                 expiresIn: 86400,
               });
               const data = {
@@ -63,7 +63,7 @@ class authService {
               };
               resolve(data);
             })
-            .catch(() => {
+            .catch((err) => {
               const response = 'Wrong Password and Email Combination';
               reject(response);
             });

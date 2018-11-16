@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import Joi from 'joi';
 import { signupSchema, loginSchema } from '../models/authModel';
 /**
@@ -19,7 +20,7 @@ class authMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message,
+        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -35,7 +36,7 @@ class authMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message,
+        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
 }

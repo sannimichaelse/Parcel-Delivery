@@ -71,6 +71,7 @@ class authService {
                 expiresIn: 86400,
               });
               const data = {
+                status: 200,
                 message: 'Authentication Successful',
                 data: res.rows[0],
                 token,

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 import parcelService from '../services/parcelService';
 
@@ -116,9 +117,11 @@ class parcelController {
   static updateParcelStatus(req, res) {
     const parcelId = req.params.id;
     const data = req.body;
-    console.log(`${parcelId}${data}`);
+    const { user_id } = req.decoded;
+    const { host } = req.headers.host;
+    console.log(`${parcelId}${data}${user_id}${host}`);
     parcelService
-      .updateStatus(parcelId, data)
+      .updateStatus(parcelId, data, host)
       .then(response => res.status(200).json({
         status: 200,
         statusMessage: 'Parcel Status Updated Successfully',

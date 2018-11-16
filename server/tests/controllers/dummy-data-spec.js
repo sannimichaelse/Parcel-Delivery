@@ -138,7 +138,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: "\"uuid\" is not allowed to be empty",
+            statusMessage: 'uuid is not allowed to be empty',
           });
           done();
         });
@@ -163,7 +163,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: "\"uuid\" is required",
+            statusMessage: 'uuid is required',
           });
           done();
         });

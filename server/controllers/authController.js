@@ -16,11 +16,13 @@ class UserController {
     authService
       .saveUser(req.body)
       .then(() => res.status(201).json({
+        status: 201,
         statusMessage: 'New user created successfully',
       }))
       .catch((err) => {
         if (err.rows[0].email) {
           return res.status(400).json({
+            status: 400,
             statusMessage: `User with this email ${
               err.rows[0].email
             } exists already`,

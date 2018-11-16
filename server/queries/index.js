@@ -43,7 +43,7 @@ class queryProvider {
   /**
    * Findby by parcelID
    * @staticmethod
-   * @param  {string} id- Request object
+   * @param  {string} id
    * @return {string} res
    */
   static findByParcelIdQuery(id) {
@@ -74,8 +74,8 @@ class queryProvider {
    */
   static saveUserQuery(body) {
     const {
- firstname, lastname, othername, email, username, password 
-} = body;
+      firstname, lastname, othername, email, username, password,
+    } = body;
 
     const d = new Date();
     const is_admin = false;
@@ -201,7 +201,68 @@ class queryProvider {
           }
         })
         .catch((e) => {
-          const response = 'Error Updating Parcel';
+          const response = 'Error Updating Destination';
+          reject(response);
+        });
+    });
+  }
+  /**
+   * Update Parcel Status Query
+   * @staticmethod
+   * @param  {string} parcelid - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static updateParcelStatusQuery(parcelid, body) {
+    const { status } = body;
+    return new Promise((resolve, reject) => {
+      const queryBody = `UPDATE parcels SET status = '${status}' WHERE id = '${parcelid}'`;
+      db.query(queryBody)
+        .then((result) => {
+          if (result.rowCount >= 1) {
+            this.findByParcelIdQuery(parcelid).then((response) => {
+              resolve(response);
+            }).catch((error) => {
+              reject(error);
+            });
+          } else if (result.rowCount === 0) {
+            const response = 'Parcel Id not found';
+            reject(response);
+          }
+        })
+        .catch((e) => {
+          const response = 'Error Updating Status Parcel';
+          reject(response);
+        });
+    });
+  }
+
+  /**
+   * Update Location Status Query
+   * @staticmethod
+   * @param  {string} parcelid - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static updateParcelLocationQuery(parcelid, body) {
+    const { location } = body;
+    return new Promise((resolve, reject) => {
+      const queryBody = `UPDATE parcels SET location = '${location}' WHERE id = '${parcelid}'`;
+      db.query(queryBody)
+        .then((result) => {
+          if (result.rowCount >= 1) {
+            this.findByParcelIdQuery(parcelid).then((response) => {
+              resolve(response);
+            }).catch((error) => {
+              reject(error);
+            });
+          } else if (result.rowCount === 0) {
+            const response = 'Parcel Id not found';
+            reject(response);
+          }
+        })
+        .catch((e) => {
+          const response = 'Error Updating Location Parcel';
           reject(response);
         });
     });

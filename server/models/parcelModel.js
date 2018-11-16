@@ -30,5 +30,18 @@ const updateParcelDestinationSchema = {
   destination,
 };
 
+const updateParcelStatusSchema = {
+  status,
+};
 
-export { parcelSchema, updateParcelDestinationSchema };
+const updateParcelLocationSchema = {
+  location,
+};
+
+
+export {
+  parcelSchema,
+  updateParcelDestinationSchema,
+  updateParcelStatusSchema,
+  updateParcelLocationSchema,
+};

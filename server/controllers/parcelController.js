@@ -31,7 +31,7 @@ class parcelController {
  * @param {object} res - Response object
  * @return {json} res.json
  */
-  static viewAllParcels(req, res) {
+  static viewUserParcels(req, res) {
     const userId = req.decoded.user_id;
     parcelService
       .viewAll(userId)
@@ -45,6 +45,35 @@ class parcelController {
           return res.status(200).json({
             status: 200,
             statusMessage: 'No parcel created by user yet',
+            data: [],
+          });
+        }
+        return res.status(400).json({
+          status: 400,
+          statusMessage: 'Could not fetch all parcels',
+        });
+      });
+  }
+  /**
+ * View all parcels
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static viewAllParcels(req, res) {
+    parcelService
+      .viewAllCreated()
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Successfully fetched all parcels',
+        data: response,
+      }))
+      .catch((err) => {
+        if (err.responseMessage === 'Parcels Array Empty') {
+          return res.status(200).json({
+            status: 200,
+            statusMessage: 'Empty Parcel Array',
             data: [],
           });
         }

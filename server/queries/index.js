@@ -113,7 +113,7 @@ class queryProvider {
    * @param  {string} id - Request object
    * @return {string} res
    */
-  static findAllUserParcels(id) {
+  static findUserParcelsQuery(id) {
     return new Promise((resolve, reject) => {
       const query = `SELECT * FROM parcels WHERE user_id = '${id}'`;
       db.query(query)
@@ -130,6 +130,33 @@ class queryProvider {
         })
         .catch(() => {
           err.responseMessage = 'Error Finding All User Parcels';
+          err.responseCode = '02';
+          reject(err);
+        });
+    });
+  }
+  /**
+   * Find All created parcels
+   * @staticmethod
+   * @return {string} res
+   */
+  static findAllParcelsQuery() {
+    return new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM parcels';
+      db.query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            err.responseMessage = 'Parcels Array Empty';
+            err.responseCode = '01';
+            reject(err);
+          } else if (result.rowCount >= 1) {
+            obj.rowCount = result.rowCount;
+            obj.rows = result.rows;
+            resolve(obj);
+          }
+        })
+        .catch(() => {
+          err.responseMessage = 'Error Finding All Parcels';
           err.responseCode = '02';
           reject(err);
         });

@@ -6,7 +6,7 @@
         <img src="https://api.travis-ci.org/sannimichaelse/Parcel-Delivery.svg?branch=develop"
             alt="build status">
     </a>
-   <a href="https://codeclimate.com/github/sannimichaelse/Parcel-Delivery/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9362c0aa748e9823507d/test_coverage" /></a>
+   <a href="https://img.shields.io/github/license/mashape/apistatus.svg"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" /></a>
 </p>
 
 ## SendIT

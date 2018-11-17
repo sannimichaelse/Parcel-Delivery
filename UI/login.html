@@ -1,72 +1,37 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Order and Process Parcels" />
+    <meta name="author" content="Sanni Michael Tomiwa" />
+    <title>Send IT | Login</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Sunflower:300"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Order and Process Parcels">
-    <meta name="author" content="Sanni Michael Tomiwa">
-    <title>Send IT | Login </title>
-    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>
-                    <a href="index.html">
-                        <span id="trackerText">Send<span id="highlighter">it</span></span>
-                    </a>
-                </h1>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a class="current" href="login.html">Login</a>
-                    </li>
-                    <li>
-                        <a href="signup.html">Signup</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
-    <section id="login-bar">
-        <div class="white-login">
-            <br><br><br>
-            <div class="userform">
-                <br>
-                <h3 id="quoteTitle">Login</h3>
-                <div>
-                    <br>
-                    <input type="text" id="username" placeholder="Username">
-                </div>
-                <div>
-                    <br>
-                    <input type="password" id="password" placeholder="Password">
-                </div>
-                <button id="buttonSubmit">Submit</button>
-            </div>
-            <br><br>
-        </div>
-    </section>
-
-    
-    <footer class="p-t-12" style="margin-top: 150px !important;">
-        <p>
-            <span id="trackerText">Send<span id="highlighter">it</span></span>
-            , Copyright &copy; 2018</p>
-    </footer>
+  <body>
+    <a href="index.html" id="linkup"><h1 id="mainHeader">Sendit</h1></a> 
+    <h2 id="subHeader">Sign in to Sendit</h2>
+    <div class="form-div">
+      <label for="fname">Username</label>
+      <input type="text" id="username" placeholder="Your username.." /> <br />
+      <label for="lname">Password</label>
+      <input type="password" id="password" placeholder="Your password.." />
+      <br />
+      <input type="submit" onclick='location.href="dashboard.html"' value="Sign In" />
+    </div>
+    <div class="form-div" style="margin-top:10px !important">
+      <p>Dont have an account? <a href="signup.html" id="linkup">Sign up</a></p>
+    </div>
     <script src="assets/js/app.js"></script>
-</body>
-
+  </body>
 </html>

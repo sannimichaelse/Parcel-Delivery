@@ -1,0 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+
+* {
+    font-family: 'Sunflower', sans-serif;
+    margin: 0;
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #196282;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #225f79;
+}
+
+#mainHeader {
+    text-align: center;
+    color: #196282;
+    margin-top: 40px;
+}
+
+#subHeader {
+    text-align: center;
+    color: #f65383;
+    padding-top: 10px;
+    
+}
+
+.form-div {
+    margin: auto;
+    width: 25%;
+    font-size: 15px;
+    border: 1px solid #eee;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 30px
+}
+
+#linkup{
+    text-decoration:none;color:#196282
+}
+
+#create-parcel{
+    margin-top:15px;
+    text-align: center;
+    color: #f65383;
+}

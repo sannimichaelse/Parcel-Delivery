@@ -1,77 +1,40 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Order and Process Parcels">
-    <meta name="author" content="Sanni Michael Tomiwa">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Order and Process Parcels" />
+    <meta name="author" content="Sanni Michael Tomiwa" />
     <title>Send IT | Signup</title>
-    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Sunflower:300"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Maven+Pro|Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
 
-<body class="white-bg">
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>
-                    <a href="index.html">
-                        <span id="trackerText">Send<span id="highlighter">it</span></span>
-                    </a>
-                </h1>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-                    <li>
-                        <a class="current" href="signup.html">Signup</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="login-bar">
-        <div class="white-login">
-            <br><br>
-            <div class="userform">
-                <br>
-                <h3 id="quoteTitle">Signup</h3>
-                <br>
-                <div>
-                    <input type="text" id="fullname" placeholder="Fullname">
-                </div>
-                <div>
-                    <br>
-                    <input type="text" id="username" placeholder="Username">
-                </div>
-                <div>
-                    <br>
-                    <input type="text" id="email" placeholder="Email">
-                </div>
-                <div>
-                    <br>
-                    <input type="password" id="password" placeholder="Password">
-                </div>
-
-                <button id="buttonSubmit">Submit</button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="p-t-12" style="margin-top: 150px !important;">
-        <p>
-            <span id="trackerText">Send<span id="highlighter">it</span></span>
-            , Copyright &copy; 2018</p>
-    </footer>
-    <script src="assets/js/app.js"></script>
-</body>
-
+  <body>
+    <a href="index.html" id="linkup"><h1 id="mainHeader" style="margin-top: 20px !important;">Sendit</h1></a>
+    <h2 id="subHeader">Sign up for Sendit</h2>
+    <div class="form-div">
+      <label for="fullname">Fullname</label>
+      <input type="text" id="fullname" placeholder="Your Fullname.." /> <br />
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Your username.." /> <br />
+      <label for="email">Email</label>
+      <input type="text" id="email" placeholder="Your Email.." /> <br />
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Your password.." />
+      <br />
+      <input type="submit" onclick='location.href="dashboard.html"' value="Sign Up" />
+    </div>
+    <div class="form-div" style="margin-top:10px !important">
+      <p>Already have an account? <a href="login.html" id="linkup">Login</a></p>
+    </div>
+  </body>
 </html>

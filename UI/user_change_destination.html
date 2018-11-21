@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
 
-  <body>
+  <body style="background-color: #f4f4f4 !important">
     <header>
       <div class="container">
         <div id="branding">
@@ -41,8 +41,10 @@
     <br><br>
     <h2 id="create-parcel">Change Parcel Destination</h2>
     <div class="form-div">
-      <label for="destination">Destination</label>
-      <input type="text" id="destination" placeholder="Destination.." /> <br />
+      <label for="destination">Old Destination</label>
+      <input type="text" id="destination" placeholder="Old Destination.." /> <br />
+      <label for="destination">New Destination</label>
+      <input type="text" id="destination" placeholder="New Destination.." /> <br />
       <br />
       <input
         type="submit"
@@ -50,5 +52,11 @@
         value="Change Destination"
       />
     </div>
+    <footer style="margin-top:200px !important">
+      <p class="p-t-12">
+        <span id="trackerText">Send<span id="highlighter">it</span></span> ,
+        Copyright &copy; 2018
+      </p>
+    </footer>
   </body>
 </html>

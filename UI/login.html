@@ -16,22 +16,52 @@
     />
     <link rel="stylesheet" href="assets/css/login.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
-  <body>
-    <a href="index.html" id="linkup"><h1 id="mainHeader">Sendit</h1></a> 
+  <body style="background-color: #f4f4f4 !important">
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1>
+            <a href="index.html">
+              <span id="trackerText">Send<span id="highlighter">it</span></span>
+            </a>
+          </h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a class="current" href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <a href="index.html" id="linkup"><h1 id="mainHeader">Sendit</h1></a>
     <h2 id="subHeader">Sign in to Sendit</h2>
-    <div class="form-div">
+    <div class="form-div" >
       <label for="fname">Username</label>
       <input type="text" id="username" placeholder="Your username.." /> <br />
       <label for="lname">Password</label>
       <input type="password" id="password" placeholder="Your password.." />
       <br />
-      <input type="submit" onclick='location.href="dashboard.html"' value="Sign In" />
+      <input
+        type="submit"
+        onclick="location.href=&quot;dashboard.html&quot;"
+        value="Sign In"
+      />
     </div>
     <div class="form-div" style="margin-top:10px !important">
       <p>Dont have an account? <a href="signup.html" id="linkup">Sign up</a></p>
     </div>
+    <br /><br /><br />
+    <footer>
+      <p class="p-t-12">
+        <span id="trackerText">Send<span id="highlighter">it</span></span> ,
+        Copyright &copy; 2018
+      </p>
+    </footer>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

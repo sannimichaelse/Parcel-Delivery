@@ -534,7 +534,7 @@ th, td {
   color: #196282;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 h1.allparcels, h1.processing, h1.delivered, h1.declined, h1.available {
@@ -546,28 +546,28 @@ h1.allparcels, h1.processing, h1.delivered, h1.declined, h1.available {
   color: orange;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .available {
   color: black;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .delivered {
   color: green;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .declined {
   color: red;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .detailContainer {
@@ -658,8 +658,49 @@ html, body {
 
 #welcome{
   margin-top: 20px;
+  color:#f17a9e
 }
 
 .disturber{
   margin-top: -50px !important;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  /* margin-top: 50px; */
+  border: 1px solid #888;
+  width: 40%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

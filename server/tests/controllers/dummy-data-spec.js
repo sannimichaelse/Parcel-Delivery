@@ -191,7 +191,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.body.should.be.deep.equal({
             status: 400,
             statusMessage:
-              'Parcel Already Exists. Make sure uuid and parcelId are unique'
+              'Parcel Already Exists. Make sure uuid and parcelId are unique',
           });
           done();
         });

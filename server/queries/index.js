@@ -95,6 +95,34 @@ class queryProvider {
     });
   }
   /**
+   * Findby user and parcelid
+   * @staticmethod
+   * @param  {string} user_id
+   * @param  {string} parcel_id
+   * @return {string} res
+   */
+  static findByUserAndParcelIdQuery(user_id, parcel_id) {
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM parcels WHERE user_id = '${user_id}' AND id = '${parcel_id}' `;
+      db.query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            const response = {};
+            response.responseMessage = 'Parcel does not exist'
+            reject(response);
+          } else if (result.rowCount >= 1) {
+            obj.rowCount = result.rowCount;
+            obj.rows = result.rows;
+            resolve(obj);
+          }
+        })
+        .catch(() => {
+          const error = 'Error Finding User';
+          reject(error);
+        });
+    });
+  }
+  /**
    * save new user
    * @staticmethod
    * @param  {string} body - Request object
@@ -344,6 +372,36 @@ class queryProvider {
         .catch((error) => {
           const messager = 'Error Finding User';
           reject(error);
+        });
+    });
+  }
+  /**
+   * Cancel Parcel Status Query
+   * @staticmethod
+   * @param  {string} parcelid - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static cancelParcelStatusQuery(parcelid) {
+    const exception = 'delivered';
+    return new Promise((resolve, reject) => {
+      const queryBody = `UPDATE parcels SET status = 'Cancelled' WHERE id = '${parcelid}' AND status <> '${exception}'`;
+      db.query(queryBody)
+        .then((result) => {
+          if (result.rowCount >= 1) {
+            this.findByParcelIdQuery(parcelid).then((response) => {
+              resolve(response);
+            }).catch((error) => {
+              reject(error);
+            });
+          } else if (result.rowCount === 0) {
+            const response = 'Parcel Id not found. Might have been delivered';
+            reject(response);
+          }
+        })
+        .catch((e) => {
+          const response = 'Error Updating Destination';
+          reject(response);
         });
     });
   }

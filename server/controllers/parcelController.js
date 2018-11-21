@@ -43,8 +43,8 @@ class parcelController {
       }))
       .catch((err) => {
         if (err.responseMessage === 'Parcels Array Empty') {
-          return res.status(200).json({
-            status: 200,
+          return res.status(400).json({
+            status: 400,
             statusMessage: 'No parcel created by user yet',
             data: [],
           });
@@ -52,6 +52,37 @@ class parcelController {
         return res.status(400).json({
           status: 400,
           statusMessage: 'Could not fetch all parcels',
+        });
+      });
+  }
+  /**
+ * View all parcels created by user
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static findByParcelId(req, res) {
+    const userId = req.decoded.user_id;
+    const { id } = req.params;
+    parcelService
+      .findByParcelId(userId, id)
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Successfully fetched parcel',
+        data: response,
+      }))
+      .catch((err) => {
+        console.log(err);
+        if (err.responseMessage === 'Parcel does not exist') {
+          return res.status(404).json({
+            status: 404,
+            statusMessage: 'Parcel with id does not Exist for User',
+          });
+        }
+        return res.status(400).json({
+          status: 400,
+          statusMessage: 'Could not fetch parcel',
         });
       });
   }
@@ -72,8 +103,8 @@ class parcelController {
       }))
       .catch((err) => {
         if (err.responseMessage === 'Parcels Array Empty') {
-          return res.status(200).json({
-            status: 200,
+          return res.status(404).json({
+            status: 404,
             statusMessage: 'Empty Parcel Array',
             data: [],
           });
@@ -148,6 +179,27 @@ class parcelController {
       .then(response => res.status(200).json({
         status: 200,
         statusMessage: 'Parcel Location Updated Successfully',
+        data: response,
+      }))
+      .catch(err => res.status(400).json({
+        status: 400,
+        statusMessage: err,
+      }));
+  }
+  /**
+ * cancel parcel status
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static cancelParcel(req, res) {
+    const parcelId = req.params.id;
+    parcelService
+      .cancelParcel(parcelId)
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Parcel Status Updated Successfully',
         data: response,
       }))
       .catch(err => res.status(400).json({

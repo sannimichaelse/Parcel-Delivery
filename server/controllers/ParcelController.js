@@ -19,10 +19,11 @@ class ParcelController {
     ParcelService
       .saveParcel(req.body, userId)
       .then(() => res.status(201).json({
-        statusMessage: 'New parcel created successfully',
+        status: 201,
+        message: 'New parcel created successfully',
       }))
       .catch(err => res.status(400).json({
-        statusMessage: 'Could not create parcel',
+        message: 'Could not create parcel',
       }));
   }
   /**
@@ -38,20 +39,20 @@ class ParcelController {
       .viewAll(userId)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Successfully fetched all user parcels',
+        message: 'Successfully fetched all user parcels',
         data: response,
       }))
       .catch((err) => {
         if (err.responseMessage === 'Parcels Array Empty') {
           return res.status(400).json({
             status: 400,
-            statusMessage: 'No parcel created by user yet',
+            message: 'No parcel created by user yet',
             data: [],
           });
         }
         return res.status(400).json({
           status: 400,
-          statusMessage: 'Could not fetch all parcels',
+          message: 'Could not fetch all parcels created by user',
         });
       });
   }
@@ -69,7 +70,7 @@ class ParcelController {
       .findByParcelId(userId, id)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Successfully fetched parcel',
+        message: 'Successfully fetched parcel',
         data: response,
       }))
       .catch((err) => {
@@ -77,12 +78,12 @@ class ParcelController {
         if (err.responseMessage === 'Parcel does not exist') {
           return res.status(404).json({
             status: 404,
-            statusMessage: 'Parcel with id does not Exist for User',
+            message: 'Parcel with id does not Exist for User',
           });
         }
         return res.status(400).json({
           status: 400,
-          statusMessage: 'Could not fetch parcel',
+          message: 'Could not fetch parcel',
         });
       });
   }
@@ -99,7 +100,7 @@ class ParcelController {
       .adminFindByParcelId(id)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Successfully fetched parcel',
+        message: 'Successfully fetched parcel',
         data: response,
       }))
       .catch((err) => {
@@ -107,12 +108,12 @@ class ParcelController {
         if (err === 'Parcel does not exist') {
           return res.status(404).json({
             status: 404,
-            statusMessage: 'Parcel with id does not Exist',
+            message: 'Parcel with id does not Exist',
           });
         }
         return res.status(400).json({
           status: 400,
-          statusMessage: 'Could not fetch parcel',
+          message: 'Could not fetch parcel',
         });
       });
   }
@@ -128,20 +129,20 @@ class ParcelController {
       .viewAllCreated()
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Successfully fetched all parcels',
+        message: 'Successfully fetched all parcels',
         data: response,
       }))
       .catch((err) => {
         if (err.responseMessage === 'Parcels Array Empty') {
           return res.status(404).json({
             status: 404,
-            statusMessage: 'Empty Parcel Array',
+            message: 'Empty Parcel Array',
             data: [],
           });
         }
         return res.status(400).json({
           status: 400,
-          statusMessage: 'Could not fetch all parcels',
+          message: 'Could not fetch all parcels',
         });
       });
   }
@@ -160,12 +161,12 @@ class ParcelController {
       .updateDestination(parcelId, data)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel Destination Updated Successfully',
+        message: 'Parcel Destination Updated Successfully',
         data: response,
       }))
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err,
+        message: err,
       }));
   }
   /**
@@ -183,12 +184,12 @@ class ParcelController {
       .updateStatus(parcelId, data, host)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel Status Updated Successfully',
+        message: 'Parcel Status Updated Successfully',
         data: response,
       }))
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err,
+        message: err,
       }));
   }
   /**
@@ -206,12 +207,12 @@ class ParcelController {
       .updateLocation(parcelId, data, host)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel Location Updated Successfully',
+        message: 'Parcel Location Updated Successfully',
         data: response,
       }))
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err,
+        message: err,
       }));
   }
   /**
@@ -227,12 +228,12 @@ class ParcelController {
       .cancelParcel(parcelId)
       .then(response => res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel Status Updated Successfully',
+        message: 'Parcel Status Updated Successfully',
         data: response,
       }))
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err,
+        message: err,
       }));
   }
 }

@@ -13,7 +13,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
     it('it should GET all parcels', (done) => {
       chai
         .request(server)
-        .get('/api/v1/parcels')
+        .get('/api/v1/parcel')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
@@ -28,7 +28,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
     it('it should GET parcel by parcelid specified', (done) => {
       chai
         .request(server)
-        .get('/api/v1/parcels/2222')
+        .get('/api/v1/parcel/2222')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
@@ -44,7 +44,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
       const parcelid = 7;
       chai
         .request(server)
-        .get(`/api/v1/parcels/${parcelid}`)
+        .get(`/api/v1/parcel/${parcelid}`)
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
@@ -59,7 +59,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
       const userid = 3;
       chai
         .request(server)
-        .get(`/api/v1/users/${userid}/parcels`)
+        .get(`/api/v1/users/${userid}/parcel`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
@@ -75,7 +75,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
       const userid = 4;
       chai
         .request(server)
-        .get(`/api/v1/users/${userid}/parcels`)
+        .get(`/api/v1/users/${userid}/parcel`)
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.have
@@ -95,7 +95,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
     it('it should make a post request if all fields are not empty ', (done) => {
       chai
         .request(server)
-        .post('/api/v1/parcels/')
+        .post('/api/v1/parcel/')
         .send({
           uuid: 'mk9',
           username: 'sullivan',
@@ -132,7 +132,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
 
       chai
         .request(server)
-        .post('/api/v1/parcels/')
+        .post('/api/v1/parcel/')
         .send(body)
         .end((err, res) => {
           res.should.have.status(400);
@@ -157,7 +157,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
       };
       chai
         .request(server)
-        .post('/api/v1/parcels/')
+        .post('/api/v1/parcel/')
         .send(body)
         .end((err, res) => {
           res.should.have.status(400);
@@ -184,7 +184,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
 
       chai
         .request(server)
-        .post('/api/v1/parcels/')
+        .post('/api/v1/parcel/')
         .send(data)
         .end((err, res) => {
           res.should.have.status(400);
@@ -206,7 +206,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
       const parcelid = 2222;
       chai
         .request(server)
-        .put(`/api/v1/parcels/${parcelid}/cancel`)
+        .put(`/api/v1/parcel/${parcelid}/cancel`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have

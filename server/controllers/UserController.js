@@ -20,7 +20,7 @@ class UserController {
         statusMessage: 'New user created successfully',
       }))
       .catch((err) => {
-        if (err.rows[0].email) {
+        if (err.rowCount >= 1) {
           return res.status(400).json({
             status: 400,
             statusMessage: `User with this email ${

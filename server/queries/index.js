@@ -95,6 +95,34 @@ class queryProvider {
     });
   }
   /**
+   * Findby user and parcelid
+   * @staticmethod
+   * @param  {string} user_id
+   * @param  {string} parcel_id
+   * @return {string} res
+   */
+  static findByUserAndParcelIdQuery(user_id, parcel_id) {
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM parcels WHERE user_id = '${user_id}' AND id = '${parcel_id}' `;
+      db.query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            const response = {};
+            response.responseMessage = 'Parcel does not exist'
+            reject(response);
+          } else if (result.rowCount >= 1) {
+            obj.rowCount = result.rowCount;
+            obj.rows = result.rows;
+            resolve(obj);
+          }
+        })
+        .catch(() => {
+          const error = 'Error Finding User';
+          reject(error);
+        });
+    });
+  }
+  /**
    * save new user
    * @staticmethod
    * @param  {string} body - Request object

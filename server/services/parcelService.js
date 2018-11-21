@@ -23,6 +23,21 @@ class parcelService {
     });
   }
   /**
+   * Find by parcel id
+   * @staticmethod
+   * @param  {string} user_id - Request object
+   * @param  {string} parcel_id - Request object
+   * @return {string} res
+   */
+  static findByParcelId(user_id, parcel_id) {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .findByUserAndParcelIdQuery(user_id, parcel_id)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+  /**
    * view all parcels created
    * @staticmethod
    * @return {string} res

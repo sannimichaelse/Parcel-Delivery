@@ -28,6 +28,7 @@ router.get('/auth/admin/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.
 // Parcel Routes
 router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateParcel, parcelController.createParcel);
 router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.viewUserParcels);
+router.get('/auth/parcel/:id/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.findByParcelId);
 router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
 router.get('/auth/parcel/:id/cancel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.cancelParcel);
 

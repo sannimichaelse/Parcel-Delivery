@@ -1,36 +1,98 @@
 import { Router } from 'express';
-import dummyController from '../controllers/dummyController';
-import authController from '../controllers/authController';
-import dummyMiddleware from '../middlewares/dummyMiddleware';
-import authMiddleware from '../middlewares/authMiddleware';
-import tokenMiddleware from '../middlewares/token';
-import parcelMiddleware from '../middlewares/parcelMiddleware';
-import parcelController from '../controllers/parcelController';
+import DummyController from '../controllers/DummyController';
+import UserController from '../controllers/UserController';
+import DummyMiddleware from '../middlewares/DummyMiddleware';
+import UserMiddleware from '../middlewares/UserMiddleware';
+import TokenMiddleware from '../middlewares/TokenMiddleware';
+import ParcelMiddleware from '../middlewares/ParcelMiddleware';
+import ParcelController from '../controllers/ParcelController';
+
+const { validateLogin, validateSignup } = UserMiddleware;
+const { createUser, loginUser } = UserController;
+const { verifyToken } = TokenMiddleware;
+const {
+  getAllParcels,
+  findParcelById,
+  cancelByParcelId,
+  createNewParcel,
+  getParcelByUserId,
+} = DummyController;
+
+const {
+  verifyAdmin,
+  verifyUser,
+  validateChangeParcelLocation,
+  validateChangeParcelDestination,
+  validateChangeParcelStatus,
+  validateParcel,
+} = ParcelMiddleware;
+
+const {
+  adminFindByParcelId,
+  updateParcelStatus,
+  updateParcelLocation,
+  viewAllParcels,
+  createParcel,
+  viewUserParcels,
+  findByParcelId,
+  updateParcelDestination,
+  cancelParcel,
+} = ParcelController;
 
 const router = Router();
 
 // Dummy Routes
-router.post('/parcels/', dummyMiddleware.validateDummyData, dummyController.createParcel);
-router.get('/parcels/', dummyController.getAllParcels);
-router.get('/parcels/:parcelId', dummyController.findByParcelId);
-router.get('/users/:userId/parcels', dummyController.getParcelsByUserId);
-router.put('/parcels/:parcelId/cancel', dummyController.cancelByParcelId);
+router.post('/parcels/', DummyMiddleware.validateDummyData, createNewParcel);
+router.get('/parcels/', getAllParcels);
+router.get('/parcels/:parcelId', findParcelById);
+router.get('/users/:userId/parcels', getParcelByUserId);
+router.put('/parcels/:parcelId/cancel', cancelByParcelId);
 
 // User Routes
-router.post('/auth/signup', authMiddleware.validateSignup, authController.createUser);
-router.post('/auth/login', authMiddleware.validateLogin, authController.loginUser);
+router.post('/auth/signup', validateSignup, createUser);
+router.post('/auth/login', validateLogin, loginUser);
 
 // Admin Routes
-router.get('/auth/admin/parcel/:id/', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelController.findByParcelId);
-router.put('/auth/parcel/:id/status', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelStatus, parcelController.updateParcelStatus);
-router.put('/auth/parcel/:id/location', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelLocation, parcelController.updateParcelLocation);
-router.get('/auth/admin/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelController.viewAllParcels);
+router.get(
+  '/auth/admin/parcel/:id/',
+  verifyToken,
+  verifyAdmin,
+  adminFindByParcelId,
+);
+router.put(
+  '/auth/parcel/:id/status',
+  verifyToken,
+  verifyAdmin,
+  validateChangeParcelStatus,
+  updateParcelStatus,
+);
+router.put(
+  '/auth/parcel/:id/location',
+  verifyToken,
+  verifyAdmin,
+  validateChangeParcelLocation,
+  updateParcelLocation,
+);
+
+router.get('/auth/admin/parcel/', verifyToken, verifyAdmin, viewAllParcels);
 
 // Parcel Routes
-router.post('/auth/parcel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateParcel, parcelController.createParcel);
-router.get('/auth/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.viewUserParcels);
-router.get('/auth/parcel/:id/', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.findByParcelId);
-router.put('/auth/parcel/:id/destination', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelMiddleware.validateChangeParcelDestination, parcelController.updateParcelDestination);
-router.get('/auth/parcel/:id/cancel', tokenMiddleware.verifyToken, parcelMiddleware.verifyUser, parcelController.cancelParcel);
+router.post(
+  '/auth/parcel',
+  verifyToken,
+  verifyUser,
+  validateParcel,
+  createParcel,
+);
+router.get('/auth/parcel/', verifyToken, verifyUser, viewUserParcels);
+router.get('/auth/parcel/:id/', verifyToken, verifyUser, findByParcelId);
+router.put(
+  '/auth/parcel/:id/destination',
+  verifyToken,
+  verifyUser,
+  validateChangeParcelDestination,
+  updateParcelDestination,
+);
+router.get('/auth/parcel/:id/cancel', verifyToken, verifyUser, cancelParcel);
 
 export default router;

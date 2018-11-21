@@ -1,14 +1,14 @@
 /* eslint-disable no-useless-escape */
 import Joi from 'joi';
-import { signupSchema, loginSchema } from '../models/authModel';
+import { signupSchema, loginSchema } from '../utilities/userValidator';
 /**
  *
  * @exports
- * @class authMiddleware
+ * @class UserMiddleware
  */
-class authMiddleware {
+class UserMiddleware {
   /**
-   * authMiddleware
+   * UserMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -24,7 +24,7 @@ class authMiddleware {
       }));
   }
   /**
-   * authMiddleware
+   * UserMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -41,4 +41,4 @@ class authMiddleware {
   }
 }
 
-export default authMiddleware;
+export default UserMiddleware;

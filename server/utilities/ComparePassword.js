@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
  * @exports
  * @class comparePassword
  */
-class comparePassword {
+class ComparePassword {
 /**
  * Userhelper Class
  * @staticmethod
@@ -25,4 +25,4 @@ class comparePassword {
     });
   }
 }
-export default comparePassword;
+export default ComparePassword;

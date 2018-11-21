@@ -1,5 +1,5 @@
 import chai from 'chai';
-import dataStore from '../../dummy/index';
+import dataStore from '../../utilities/dummyData/index';
 import helperClass from '../../utilities/dummy';
 
 const assert = chai.assert;

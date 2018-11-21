@@ -2,11 +2,11 @@ import jwt from 'jsonwebtoken';
 import config from '../config/index';
 /**
  * @exports
- * @class tokenMiddleware
+ * @class TokenMiddleware
  */
-class tokenMiddleware {
+class TokenMiddleware {
 /**
- * tokenMiddleware
+ * TokenMiddleware
  * Verify TOKEN
  * @staticmethod
  * @param  {object} req - Request object
@@ -38,4 +38,4 @@ class tokenMiddleware {
     }
   }
 }
-export default tokenMiddleware;
+export default TokenMiddleware;

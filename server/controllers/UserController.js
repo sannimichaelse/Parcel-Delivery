@@ -1,8 +1,8 @@
-import authService from '../services/authService';
+import UserService from '../utilities/services/UserService';
 
 /**
  * @exports
- * @class userController
+ * @class UserController
  */
 class UserController {
 /**
@@ -13,7 +13,7 @@ class UserController {
  * @return {json} res.json
  */
   static createUser(req, res) {
-    authService
+    UserService
       .saveUser(req.body)
       .then(() => res.status(201).json({
         status: 201,
@@ -43,7 +43,7 @@ class UserController {
  */
   static loginUser(req, res) {
     const { email, password } = req.body;
-    authService
+    UserService
       .validateUserLogin(email, password)
       .then(response => res.status(200).json(response))
       .catch(err => res.status(400).json({

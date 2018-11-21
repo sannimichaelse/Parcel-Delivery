@@ -155,6 +155,27 @@ class parcelController {
         statusMessage: err,
       }));
   }
+  /**
+ * cancel parcel status
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static cancelParcel(req, res) {
+    const parcelId = req.params.id;
+    parcelService
+      .cancelParcel(parcelId)
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Parcel Status Updated Successfully',
+        data: response,
+      }))
+      .catch(err => res.status(400).json({
+        status: 400,
+        statusMessage: err,
+      }));
+  }
 }
 
 export default parcelController;

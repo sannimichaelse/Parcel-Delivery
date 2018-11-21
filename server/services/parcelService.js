@@ -119,6 +119,20 @@ class parcelService {
         .catch(err => reject(err));
     });
   }
+  /**
+   * cancel parcel status
+   * @staticmethod
+   * @param  {string} parcelId - Request object
+   * @return {string} res
+   */
+  static cancelParcel(parcelId) {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .cancelParcelStatusQuery(parcelId)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
 }
 
 export default parcelService;

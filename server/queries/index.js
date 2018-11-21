@@ -347,6 +347,36 @@ class queryProvider {
         });
     });
   }
+  /**
+   * Cancel Parcel Status Query
+   * @staticmethod
+   * @param  {string} parcelid - Request object
+   * @param  {string} body - Request object
+   * @return {string} res
+   */
+  static cancelParcelStatusQuery(parcelid) {
+    const exception = 'delivered';
+    return new Promise((resolve, reject) => {
+      const queryBody = `UPDATE parcels SET status = 'Cancelled' WHERE id = '${parcelid}' AND status <> '${exception}'`;
+      db.query(queryBody)
+        .then((result) => {
+          if (result.rowCount >= 1) {
+            this.findByParcelIdQuery(parcelid).then((response) => {
+              resolve(response);
+            }).catch((error) => {
+              reject(error);
+            });
+          } else if (result.rowCount === 0) {
+            const response = 'Parcel Id not found. Might have been delivered';
+            reject(response);
+          }
+        })
+        .catch((e) => {
+          const response = 'Error Updating Destination';
+          reject(response);
+        });
+    });
+  }
 }
 
 export default queryProvider;

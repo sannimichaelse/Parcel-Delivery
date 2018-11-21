@@ -21,6 +21,7 @@ router.post('/auth/signup', authMiddleware.validateSignup, authController.create
 router.post('/auth/login', authMiddleware.validateLogin, authController.loginUser);
 
 // Admin Routes
+router.get('/auth/admin/parcel/:id/', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelController.findByParcelId);
 router.put('/auth/parcel/:id/status', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelStatus, parcelController.updateParcelStatus);
 router.put('/auth/parcel/:id/location', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelMiddleware.validateChangeParcelLocation, parcelController.updateParcelLocation);
 router.get('/auth/admin/parcel/', tokenMiddleware.verifyToken, parcelMiddleware.verifyAdmin, parcelController.viewAllParcels);

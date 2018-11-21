@@ -1,13 +1,13 @@
 import Joi from 'joi';
-import dummySchema from '../models/dummyModel';
+import dummySchema from '../utilities/dummyValidator.';
 /**
  *
  * @exports
- * @class dummyMiddleware
+ * @class DummyMiddleware
  */
-class dummyMiddleware {
+class DummyMiddleware {
   /**
-   * dummyMiddleware
+   * DummyMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -24,4 +24,4 @@ class dummyMiddleware {
   }
 }
 
-export default dummyMiddleware;
+export default DummyMiddleware;

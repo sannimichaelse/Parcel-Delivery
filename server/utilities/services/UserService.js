@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 import jwt from 'jsonwebtoken';
-import config from '../config/index';
-import crypto from '../utilities/crypto';
-import queryProvider from '../queries/index';
+import config from '../../config/index';
+import passwordValidator from '../../utilities/ComparePassword';
+import queryProvider from '../../utilities/queries';
 
 /**
  * @exports
- * @class authService
+ * @class UserService
  */
-class authService {
+class UserService {
   /**
    * Find user by email
    * @staticmethod
@@ -64,16 +64,21 @@ class authService {
       this.findUserByEmail(email)
         .then((res) => {
           const { password, id, is_admin } = res.rows[0];
-          crypto
+          passwordValidator
             .compare(userpassword, password)
             .then(() => {
               const token = jwt.sign({ user_id: id, is_admin }, config.jwtSecretKey, {
                 expiresIn: 86400,
               });
+              const object = {
+                firstname: res.rows[0].firstname,
+                email: res.rows[0].email,
+                username: res.rows[0].username,
+              };
               const data = {
                 status: 200,
                 message: 'Authentication Successful',
-                data: res.rows[0],
+                data: object,
                 token,
               };
               resolve(data);
@@ -91,4 +96,4 @@ class authService {
   }
 }
 
-export default authService;
+export default UserService;

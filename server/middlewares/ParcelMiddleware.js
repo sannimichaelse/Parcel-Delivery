@@ -1,15 +1,15 @@
 /* eslint-disable camelcase */
 import Joi from 'joi';
-import { parcelSchema, updateParcelDestinationSchema, updateParcelStatusSchema, updateParcelLocationSchema } from '../models/parcelModel';
-import Authorization from './permission';
+import { parcelSchema, updateParcelDestinationSchema, updateParcelStatusSchema, updateParcelLocationSchema } from '../utilities/parcelValidator';
+import Authorization from './Authorization';
 /**
  *
  * @exports
- * @class parcelMiddleware
+ * @class ParcelMiddleware
  */
-class parcelMiddleware {
+class ParcelMiddleware {
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -25,7 +25,7 @@ class parcelMiddleware {
       }));
   }
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -41,7 +41,7 @@ class parcelMiddleware {
       }));
   }
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -57,7 +57,7 @@ class parcelMiddleware {
       }));
   }
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -73,7 +73,7 @@ class parcelMiddleware {
       }));
   }
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -84,12 +84,12 @@ class parcelMiddleware {
     const { is_admin } = req.decoded;
     Authorization.checkPermissions(is_admin).then(() => next()).catch(() => res.status(403).json({
       status: 403,
-      statusMessage: 'Unathorized User',
+      statusMessage: 'User cannot Visit this route',
     }));
   }
 
   /**
-   * parcelMiddleware
+   * ParcelMiddleware
    * @staticmethod
    * @param  {object} req - Request object
    * @param {object} res - Response object
@@ -100,9 +100,9 @@ class parcelMiddleware {
     const { is_admin } = req.decoded;
     Authorization.checkPermissions(is_admin).then(() => res.status(403).json({
       status: 403,
-      statusMessage: 'Unauthorized User',
+      statusMessage: 'Only users can visit this route',
     })).catch(() => next());
   }
 }
 
-export default parcelMiddleware;
+export default ParcelMiddleware;

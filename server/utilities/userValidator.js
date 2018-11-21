@@ -10,13 +10,13 @@ const othername = Joi.string()
   .min(1)
   .required();
 const email = Joi.string()
-  .min(1)
+  .min(1).email()
   .required();
 const username = Joi.string()
   .min(1)
   .required();
 const password = Joi.string()
-  .min(1)
+  .min(1).max(6)
   .required();
 
 

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import bcrypt from 'bcrypt';
 import moment from 'moment';
-import db from '../connection/connect';
+import db from '../utilities/connection/connect';
 
 const saltRounds = 10;
 const obj = {};
@@ -38,6 +38,7 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
+      db.end();
     });
   }
   /**
@@ -66,6 +67,7 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
+      db.end();
     });
   }
   /**
@@ -92,6 +94,7 @@ class queryProvider {
           const error = 'Error Finding User';
           reject(error);
         });
+      db.end();
     });
   }
   /**
@@ -108,7 +111,7 @@ class queryProvider {
         .then((result) => {
           if (result.rowCount === 0) {
             const response = {};
-            response.responseMessage = 'Parcel does not exist'
+            response.responseMessage = 'Parcel does not exist';
             reject(response);
           } else if (result.rowCount >= 1) {
             obj.rowCount = result.rowCount;
@@ -120,6 +123,7 @@ class queryProvider {
           const error = 'Error Finding User';
           reject(error);
         });
+      db.end();
     });
   }
   /**
@@ -159,6 +163,7 @@ class queryProvider {
               .catch((e) => {
                 reject(e);
               });
+            db.end();
           });
         });
     });
@@ -189,6 +194,7 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
+      db.end();
     });
   }
   /**
@@ -216,6 +222,7 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
+      db.end();
     });
   }
   /**
@@ -256,6 +263,7 @@ class queryProvider {
         .catch((e) => {
           reject(e);
         });
+      db.end();
     });
   }
   /**
@@ -287,6 +295,7 @@ class queryProvider {
           const response = 'Error Updating Destination';
           reject(response);
         });
+      db.end();
     });
   }
   /**
@@ -304,9 +313,11 @@ class queryProvider {
         .then((result) => {
           if (result.rowCount >= 1) {
             this.findByParcelIdQuery(parcelid).then((response) => {
+              console.log(response);
               resolve(response);
-            }).catch((error) => {
-              reject(error);
+            }).catch((e) => {
+              console.log(e);
+              reject(e);
             });
           } else if (result.rowCount === 0) {
             const response = 'Parcel Id not found';
@@ -314,9 +325,11 @@ class queryProvider {
           }
         })
         .catch((e) => {
+          console.log(e);
           const response = 'Error Updating Status Parcel';
           reject(response);
         });
+      db.end();
     });
   }
 
@@ -348,6 +361,7 @@ class queryProvider {
           const response = 'Error Updating Location Parcel';
           reject(response);
         });
+      db.end();
     });
   }
   /**
@@ -373,6 +387,7 @@ class queryProvider {
           const messager = 'Error Finding User';
           reject(error);
         });
+      db.end();
     });
   }
   /**
@@ -403,6 +418,7 @@ class queryProvider {
           const response = 'Error Updating Destination';
           reject(response);
         });
+      db.end();
     });
   }
 }

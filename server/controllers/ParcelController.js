@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-import parcelService from '../services/parcelService';
+import ParcelService from '../utilities/services/ParcelService';
 
 /**
  * @exports
- * @class parcelController
+ * @class ParcelController
  */
-class parcelController {
+class ParcelController {
 /**
  * Creates a new parcel
  * @staticmethod
@@ -16,7 +16,7 @@ class parcelController {
  */
   static createParcel(req, res) {
     const userId = req.decoded.user_id;
-    parcelService
+    ParcelService
       .saveParcel(req.body, userId)
       .then(() => res.status(201).json({
         statusMessage: 'New parcel created successfully',
@@ -34,7 +34,7 @@ class parcelController {
  */
   static viewUserParcels(req, res) {
     const userId = req.decoded.user_id;
-    parcelService
+    ParcelService
       .viewAll(userId)
       .then(response => res.status(200).json({
         status: 200,
@@ -65,7 +65,7 @@ class parcelController {
   static findByParcelId(req, res) {
     const userId = req.decoded.user_id;
     const { id } = req.params;
-    parcelService
+    ParcelService
       .findByParcelId(userId, id)
       .then(response => res.status(200).json({
         status: 200,
@@ -87,6 +87,36 @@ class parcelController {
       });
   }
   /**
+ * admin find parcel by id
+ * @staticmethod
+ * @param  {object} req - user object
+ * @param {object} res - Response object
+ * @return {json} res.json
+ */
+  static adminFindByParcelId(req, res) {
+    const { id } = req.params;
+    ParcelService
+      .adminFindByParcelId(id)
+      .then(response => res.status(200).json({
+        status: 200,
+        statusMessage: 'Successfully fetched parcel',
+        data: response,
+      }))
+      .catch((err) => {
+        console.log(err);
+        if (err === 'Parcel does not exist') {
+          return res.status(404).json({
+            status: 404,
+            statusMessage: 'Parcel with id does not Exist',
+          });
+        }
+        return res.status(400).json({
+          status: 400,
+          statusMessage: 'Could not fetch parcel',
+        });
+      });
+  }
+  /**
  * View all parcels
  * @staticmethod
  * @param  {object} req - user object
@@ -94,7 +124,7 @@ class parcelController {
  * @return {json} res.json
  */
   static viewAllParcels(req, res) {
-    parcelService
+    ParcelService
       .viewAllCreated()
       .then(response => res.status(200).json({
         status: 200,
@@ -126,7 +156,7 @@ class parcelController {
     const parcelId = req.params.id;
     const data = req.body;
     console.log(`${parcelId}${data}`);
-    parcelService
+    ParcelService
       .updateDestination(parcelId, data)
       .then(response => res.status(200).json({
         status: 200,
@@ -148,10 +178,8 @@ class parcelController {
   static updateParcelStatus(req, res) {
     const parcelId = req.params.id;
     const data = req.body;
-    const { user_id } = req.decoded;
-    const { host } = req.headers.host;
-    console.log(`${parcelId}${data}${user_id}${host}`);
-    parcelService
+    const { host } = req.headers;
+    ParcelService
       .updateStatus(parcelId, data, host)
       .then(response => res.status(200).json({
         status: 200,
@@ -173,9 +201,9 @@ class parcelController {
   static updateParcelLocation(req, res) {
     const parcelId = req.params.id;
     const data = req.body;
-    console.log(`${parcelId}${data}`);
-    parcelService
-      .updateLocation(parcelId, data)
+    const { host } = req.headers;
+    ParcelService
+      .updateLocation(parcelId, data, host)
       .then(response => res.status(200).json({
         status: 200,
         statusMessage: 'Parcel Location Updated Successfully',
@@ -195,7 +223,7 @@ class parcelController {
  */
   static cancelParcel(req, res) {
     const parcelId = req.params.id;
-    parcelService
+    ParcelService
       .cancelParcel(parcelId)
       .then(response => res.status(200).json({
         status: 200,
@@ -209,4 +237,4 @@ class parcelController {
   }
 }
 
-export default parcelController;
+export default ParcelController;

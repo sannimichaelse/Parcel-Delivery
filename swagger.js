@@ -5,8 +5,8 @@ export default {
     title: 'Send-IT API',
     description: 'is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.',
   },
-  schemes: ['https'],
-  host: 'https://senditt.herokuapp.com/',
+  schemes: ['http'],
+  host: 'localhost:4422',
   basePath: '/api/v1/',
   tags: [
     {

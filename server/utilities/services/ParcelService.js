@@ -1,13 +1,12 @@
 /* eslint-disable camelcase */
-import queryProvider from '../queries/index';
-import NotificationService from '../services/notificationService';
-import AuthService from '../services/authService';
+import queryProvider from '../../utilities/queries';
+import NotificationService from '../../utilities/services/NotificationService';
 
 /**
  * @exports
- * @class parcelService
+ * @class ParcelService
  */
-class parcelService {
+class ParcelService {
   /**
    * Find user by id
    * @staticmethod
@@ -33,6 +32,20 @@ class parcelService {
     return new Promise((resolve, reject) => {
       queryProvider
         .findByUserAndParcelIdQuery(user_id, parcel_id)
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+  /**
+   * Admin Find by parcel id
+   * @staticmethod
+   * @param  {string} parcel_id - Request object
+   * @return {string} res
+   */
+  static adminFindByParcelId(parcel_id) {
+    return new Promise((resolve, reject) => {
+      queryProvider
+        .findByParcelIdQuery(parcel_id)
         .then(response => resolve(response))
         .catch(err => reject(err));
     });
@@ -87,6 +100,7 @@ class parcelService {
    * @param  {string} parcelId - Request object
    * @param  {string} body - Request object
    * @param  {string} host - Request object
+   * @param  {string} user_id - Request object
    * @return {string} res
    */
   static updateStatus(parcelId, body, host) {
@@ -94,27 +108,10 @@ class parcelService {
       queryProvider
         .updateParcelStatusQuery(parcelId, body)
         .then((response) => {
+          const { user_id } = response.rows[0];
+          const emailBody = `Your Parcel Details has been updated by Admin <br><br> Parcel Name: ${response.rows[0].parcel} <br> Parcel Status : ${response.rows[0].status}`;
+          NotificationService.sendMail(emailBody, host, user_id);
           resolve(response);
-          queryProvider
-            .findByParcelIdQuery(parcelId)
-            .then((res) => {
-              const userid = res.rows[0].user_id;
-              queryProvider
-                .findUserByIdQuery(userid)
-                .then((resp) => {
-                  console.log(resp);
-                  const emailBody = `Dear ${resp.rows[0].firstname}, Your Parcel Status with id ${response.rows[0].id} has been changed to ${response.rows[0].status}`;
-                  console.log(emailBody);
-                  const userEmailAddress = resp.rows[0].email;
-                  NotificationService.sendMail(userEmailAddress, host);
-                })
-                .catch((err) => {
-                  console.log(err);
-                  const e = 'Could not Send Mail';
-                  reject(e);
-                });
-            })
-            .catch(err => reject(err));
         })
         .catch(err => reject(err));
     });
@@ -124,13 +121,19 @@ class parcelService {
    * @staticmethod
    * @param  {string} parcelId - Request object
    * @param  {string} body - Request object
+   * @param  {string} host - Request object
    * @return {string} res
    */
-  static updateLocation(parcelId, body) {
+  static updateLocation(parcelId, body, host) {
     return new Promise((resolve, reject) => {
       queryProvider
-        .updateParcelStatusQuery(parcelId, body)
-        .then(response => resolve(response))
+        .updateParcelLocationQuery(parcelId, body)
+        .then((response) => {
+          const { user_id } = response.rows[0];
+          const emailBody = `Your Parcel Details has been updated by Admin <br><br> Parcel Name: ${response.rows[0].parcel} <br> Parcel Location : ${response.rows[0].location}`;
+          NotificationService.sendMail(emailBody, host, user_id);
+          resolve(response);
+        })
         .catch(err => reject(err));
     });
   }
@@ -150,4 +153,4 @@ class parcelService {
   }
 }
 
-export default parcelService;
+export default ParcelService;

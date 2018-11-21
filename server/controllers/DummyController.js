@@ -1,10 +1,10 @@
-import helperClass from '../utilities/dummy';
-import dataStore from '../dummy/index';
+import helperClass from '../utilities/dummyHelper';
+import dataStore from '../utilities/dummyData/index';
 /**
  * @exports
- * @class dummyController
+ * @class DummyController
  */
-class dummyController {
+class DummyController {
   /**
    * Creates a new parcel
    * @staticmethod
@@ -12,7 +12,7 @@ class dummyController {
    * @param {object} res - Response object
    * @return {json} res.json
    */
-  static createParcel(req, res) {
+  static createNewParcel(req, res) {
     const { uuid, parcelId } = req.body;
     const position = helperClass.findParcelByUser(dataStore, uuid, parcelId);
     if (position > -1) {
@@ -35,7 +35,7 @@ class dummyController {
    * @param {object} res - Response object
    * @return {json} res.json
    */
-  static findByParcelId(req, res) {
+  static findParcelById(req, res) {
     const { parcelId } = req.params;
     const position = helperClass.findUserByParcelId(dataStore, parcelId);
     if (position > -1) {
@@ -73,7 +73,7 @@ class dummyController {
    * @param {object} res - Response object
    * @return {json} res.json
    */
-  static getParcelsByUserId(req, res) {
+  static getParcelByUserId(req, res) {
     const { userId } = req.params;
 
     const result = helperClass.findAllParcelByUserId(dataStore, userId);
@@ -116,4 +116,4 @@ class dummyController {
   }
 }
 
-export default dummyController;
+export default DummyController;

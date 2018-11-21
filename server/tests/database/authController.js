@@ -2,7 +2,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../../index';
-import queryProivider from '../../queries/index';
+import queryProivider from '../../utilities/queries';
 
 chai.use(chaiHttp);
 chai.should();

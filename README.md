@@ -13,6 +13,12 @@
 
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
+## Acces running application
+[Heroku](https://senditt.herokuapp.com/)<br>
+[Docs](https://senditt.herokuapp.com/docs)<br>
+[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)<br>
+[Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2213242)
+
 ### Required Features
 * Users can create an account and log in
 * Users can create a parcel delivery order.
@@ -121,6 +127,32 @@ npm run lint:dev
         <td>/api/v1/users/parcels/:id</td>
         <td>Get all parcels belonging to a user</td>
   </tr>
+   <tr>
+        <td>POST</td>
+        <td>/api/v1/auth/signup</td>
+        <td>Signup a new user using database </td>
+  </tr>
+   <tr>
+        <td>POST</td>
+        <td>/api/v1/auth/login</td>
+        <td>Login user with email and password </td>
+  </tr>
+  <tr>
+        <td>PUT</td>
+        <td>/api/v1//parcels/:id/destination</td>
+        <td>Change Parcel Id destination by user </td>
+  </tr>
+  <tr>
+        <td>PUT</td>
+        <td>/api/v1/parcels/:id/status</td>
+        <td>Change Parcel status by user admin</td>
+  </tr>
+   <tr>
+        <td>PUT</td>
+        <td>/api/v1/parcels/:id/location</td>
+        <td>Change Parcel location by user admin</td>
+  </tr>
+  
 
 </table>
 <br>
@@ -137,12 +169,3 @@ This project is licensed under the MIT License
 [FreeCodeCamp](https://medium.freecodecamp.com)<br>
 [Google](https://google.com)<br>
 [Postgrestutorial.com](http://www.postgresqltutorial.com/)
-
-## Acces running application
-[Heroku](https://senditt.herokuapp.com/)<br>
-[Docs](https://senditt.herokuapp.com/docs)<br>
-[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)<br>
-[Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2213242)
-
-
-

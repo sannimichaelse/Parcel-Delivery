@@ -40,7 +40,8 @@
     "moment": "^2.22.1",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.4",
-    "pg": "^7.6.1"
+    "pg": "^7.6.1",
+    "swagger-ui-express": "^4.0.1"
   },
   "repository": {
     "type": "git",

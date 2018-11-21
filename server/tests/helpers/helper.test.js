@@ -1,6 +1,6 @@
 import chai from 'chai';
 import dataStore from '../../utilities/dummyData/index';
-import helperClass from '../../utilities/dummy';
+import helperClass from '../../utilities/dummyHelper';
 
 const assert = chai.assert;
 

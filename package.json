@@ -4,13 +4,14 @@
   "description": "parcel-delivery is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha ./server/tests/*  --timeout 15000 --recursive --exit || true",
+    "test": "nyc --reporter=html --reporter=text mocha --exit --timeout 15000  --compilers js:babel-register server/tests --recursive || true",
     "start": "babel-node --presets=env ./server/index.js",
     "lint:dev": "eslint \"server/**/*.js\" index.js --fix || true",
-    "start:dev":"nodemon --exec babel-node --presets=env ./server/index.js",
+    "start:dev": "nodemon --exec babel-node --presets=env ./server/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.1.5",
     "eslint": "^4.19.1",

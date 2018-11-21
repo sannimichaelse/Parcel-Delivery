@@ -22,8 +22,8 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
         .request(server)
         .post('/api/v1/auth/login')
         .send({
-          email: 'sanni@cashenvoy.com',
-          password: 'programming',
+          email: 'tomiwatech@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           res.body.should.have

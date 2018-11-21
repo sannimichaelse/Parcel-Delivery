@@ -38,7 +38,6 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
-      db.end();
     });
   }
   /**
@@ -67,7 +66,6 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
-      db.end();
     });
   }
   /**
@@ -94,7 +92,6 @@ class queryProvider {
           const error = 'Error Finding User';
           reject(error);
         });
-      db.end();
     });
   }
   /**
@@ -123,7 +120,6 @@ class queryProvider {
           const error = 'Error Finding User';
           reject(error);
         });
-      db.end();
     });
   }
   /**
@@ -163,7 +159,6 @@ class queryProvider {
               .catch((e) => {
                 reject(e);
               });
-            db.end();
           });
         });
     });
@@ -194,7 +189,6 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
-      db.end();
     });
   }
   /**
@@ -222,7 +216,6 @@ class queryProvider {
           err.responseCode = '02';
           reject(err);
         });
-      db.end();
     });
   }
   /**
@@ -263,7 +256,6 @@ class queryProvider {
         .catch((e) => {
           reject(e);
         });
-      db.end();
     });
   }
   /**
@@ -295,7 +287,6 @@ class queryProvider {
           const response = 'Error Updating Destination';
           reject(response);
         });
-      db.end();
     });
   }
   /**
@@ -329,7 +320,6 @@ class queryProvider {
           const response = 'Error Updating Status Parcel';
           reject(response);
         });
-      db.end();
     });
   }
 
@@ -361,7 +351,6 @@ class queryProvider {
           const response = 'Error Updating Location Parcel';
           reject(response);
         });
-      db.end();
     });
   }
   /**
@@ -387,7 +376,6 @@ class queryProvider {
           const messager = 'Error Finding User';
           reject(error);
         });
-      db.end();
     });
   }
   /**
@@ -418,7 +406,6 @@ class queryProvider {
           const response = 'Error Updating Destination';
           reject(response);
         });
-      db.end();
     });
   }
 }

@@ -139,7 +139,7 @@ npm run lint:dev
   </tr>
   <tr>
         <td>PUT</td>
-        <td>/api/v1//parcels/:id/destination</td>
+        <td>/api/v1/parcels/:id/destination</td>
         <td>Change Parcel Id destination by user </td>
   </tr>
   <tr>

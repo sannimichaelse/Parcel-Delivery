@@ -408,6 +408,31 @@ class queryProvider {
         });
     });
   }
+  /**
+   * Delete parcel by name
+   * @staticmethod
+   * @param  {string} name - Request object
+   * @return {string} res
+   */
+  static deleteParcelByNameQuery(name) {
+    return new Promise((resolve, reject) => {
+      const query = `DELETE FROM parcels WHERE parcel = '${name}'`;
+      db.query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            const message = 'parcel does not exist';
+            reject(message);
+          } else if (result.rowCount >= 1) {
+            const response = 'parcel deleted';
+            resolve(response);
+          }
+        })
+        .catch((error) => {
+          const messager = 'Error Deleting parcel';
+          reject(error);
+        });
+    });
+  }
 }
 
 export default queryProvider;

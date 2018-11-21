@@ -42,11 +42,11 @@ const {
 const router = Router();
 
 // Dummy Routes
-router.post('/parcels/', DummyMiddleware.validateDummyData, createNewParcel);
-router.get('/parcels/', getAllParcels);
-router.get('/parcels/:parcelId', findParcelById);
-router.get('/users/:userId/parcels', getParcelByUserId);
-router.put('/parcels/:parcelId/cancel', cancelByParcelId);
+router.post('/parcel/', DummyMiddleware.validateDummyData, createNewParcel);
+router.get('/parcel/', getAllParcels);
+router.get('/parcel/:parcelId', findParcelById);
+router.get('/users/:userId/parcel', getParcelByUserId);
+router.put('/parcel/:parcelId/cancel', cancelByParcelId);
 
 // User Routes
 router.post('/auth/signup', validateSignup, createUser);
@@ -54,45 +54,45 @@ router.post('/auth/login', validateLogin, loginUser);
 
 // Admin Routes
 router.get(
-  '/auth/admin/parcel/:id/',
+  '/parcels/:id/',
   verifyToken,
   verifyAdmin,
   adminFindByParcelId,
 );
 router.put(
-  '/auth/parcel/:id/status',
+  '/parcels/:id/status',
   verifyToken,
   verifyAdmin,
   validateChangeParcelStatus,
   updateParcelStatus,
 );
 router.put(
-  '/auth/parcel/:id/location',
+  '/parcels/:id/location',
   verifyToken,
   verifyAdmin,
   validateChangeParcelLocation,
   updateParcelLocation,
 );
 
-router.get('/auth/admin/parcel/', verifyToken, verifyAdmin, viewAllParcels);
+router.get('/parcels/', verifyToken, verifyAdmin, viewAllParcels);
 
 // Parcel Routes
 router.post(
-  '/auth/parcel',
+  '/parcels',
   verifyToken,
   verifyUser,
   validateParcel,
   createParcel,
 );
-router.get('/auth/parcel/', verifyToken, verifyUser, viewUserParcels);
-router.get('/auth/parcel/:id/', verifyToken, verifyUser, findByParcelId);
+router.get('/users/parcels/', verifyToken, verifyUser, viewUserParcels);
+router.get('/users/parcels/:id/', verifyToken, verifyUser, findByParcelId);
 router.put(
-  '/auth/parcel/:id/destination',
+  '/parcels/:id/destination',
   verifyToken,
   verifyUser,
   validateChangeParcelDestination,
   updateParcelDestination,
 );
-router.get('/auth/parcel/:id/cancel', verifyToken, verifyUser, cancelParcel);
+router.get('/parcels/:id/cancel', verifyToken, verifyUser, cancelParcel);
 
 export default router;

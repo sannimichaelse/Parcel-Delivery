@@ -5,8 +5,8 @@ export default {
     title: 'Send-IT API',
     description: 'is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.',
   },
-  schemes: ['http'],
-  host: 'localhost:4422',
+  schemes: ['https'],
+  host: 'senditt.herokuapp.com/',
   basePath: '/api/v1/',
   tags: [
     {
@@ -123,7 +123,7 @@ export default {
         },
       },
     },
-    '/auth/parcel/:id/status': {
+    '/parcels/:id/status': {
       post: {
         tags: ['Auth Admin'],
         summary: 'Update Parcel Status',
@@ -155,7 +155,7 @@ export default {
         },
       },
     },
-    '/auth/parcel/:id/location': {
+    '/parcels/:id/location': {
       post: {
         tags: ['Auth Admin'],
         summary: 'Update Parcel Location',
@@ -188,7 +188,7 @@ export default {
         },
       },
     },
-    '/auth/admin/parcel': {
+    '/parcels': {
       get: {
         tags: ['Auth Admin'],
         summary: 'Get all parcels created on the platform',
@@ -214,7 +214,7 @@ export default {
         },
       },
     },
-    '/auth/admin/parcel/:id': {
+    '/parcels/:id': {
       get: {
         tags: ['Auth Admin'],
         summary: 'Get parcel by id ',
@@ -240,7 +240,7 @@ export default {
         },
       },
     },
-    '/auth/parcel': {
+    '/parcels - create new': {
       post: {
         tags: ['Parcels'],
         summary: 'Create parcel for logged in user on the API',
@@ -309,7 +309,7 @@ export default {
       },
     },
     // eslint-disable-next-line no-dupe-keys
-    '/auth/parcel - get': {
+    '/users/parcels/': {
       get: {
         tags: ['Parcels'],
         summary: 'Get all parcels created by user on the platform',
@@ -335,7 +335,7 @@ export default {
         },
       },
     },
-    '/auth/parcel/:id': {
+    '/users/parcels/:id': {
       get: {
         tags: ['Parcels'],
         summary: 'Get parcel by parcelid for a user',
@@ -361,7 +361,7 @@ export default {
         },
       },
     },
-    '/auth/parcel/:id/cancel': {
+    '/parcels/:id/cancel': {
       get: {
         tags: ['Parcels'],
         summary: 'Cancel Parcel Order',
@@ -387,7 +387,7 @@ export default {
         },
       },
     },
-    '/auth/parcel/:id/destination': {
+    '/parcels/:id/destination': {
       put: {
         tags: ['Parcels'],
         summary: 'Change parcel destination',

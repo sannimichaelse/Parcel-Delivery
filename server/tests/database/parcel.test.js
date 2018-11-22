@@ -29,8 +29,8 @@ before(() => {
         res.body.should.have
           .property('message')
           .to.equals('Authentication Successful');
+        // eslint-disable-next-line prefer-destructuring
         token = res.body.token;
-        console.log(token);
         res.body.should.have.property('status').to.equals(200);
         res.body.should.have.property('data').to.be.an('object');
         res.body.should.have.property('token').to.be.a('string');
@@ -127,7 +127,6 @@ describe('UNIT TESTS FOR PARCEL CONTROLLER', () => {
     });
 
     it('it should cancel parcel status ', (done) => {
-
       chai
         .request(server)
         .get('/api/v1/parcels/15/cancel')

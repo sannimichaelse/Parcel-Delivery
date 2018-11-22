@@ -2,7 +2,7 @@ import chai from 'chai';
 import dataStore from '../../utilities/dummyData/index';
 import helperClass from '../../utilities/dummyHelper';
 
-const assert = chai.assert;
+const { assert } = chai;
 
 describe('UNIT TESTS HELPERS', () => {
   describe('Find Parcel by User', () => {

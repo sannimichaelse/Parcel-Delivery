@@ -22,7 +22,7 @@ class ParcelController {
         status: 201,
         message: 'New parcel created successfully',
       }))
-      .catch(err => res.status(400).json({
+      .catch(() => res.status(400).json({
         message: 'Could not create parcel',
       }));
   }

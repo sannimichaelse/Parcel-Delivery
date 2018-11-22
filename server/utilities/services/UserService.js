@@ -48,7 +48,18 @@ class UserService {
     return new Promise((resolve, reject) => {
       queryProvider
         .saveUserQuery(body)
-        .then(response => resolve(response))
+        .then((response) => {
+          const { id, is_admin } = response[0];
+          const token = jwt.sign({ user_id: id, is_admin }, config.jwtSecretKey, {
+            expiresIn: 86400,
+          });
+          const data = {
+            status: 201,
+            message: 'New user created successfully',
+            token,
+          };
+          resolve(data);
+        })
         .catch(err => reject(err));
     });
   }

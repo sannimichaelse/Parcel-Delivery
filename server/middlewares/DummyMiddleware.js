@@ -19,7 +19,7 @@ class DummyMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
 }

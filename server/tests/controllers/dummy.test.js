@@ -17,7 +17,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('statusMessage')
+            .property('message')
             .to.equals('Successfully fetched all parcels');
           res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('array');
@@ -32,7 +32,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('statusMessage')
+            .property('message')
             .to.equals('Parcel found');
           res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('object');
@@ -49,7 +49,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'Parcel not found',
+            message: 'Parcel not found',
           });
           done();
         });
@@ -63,7 +63,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('statusMessage')
+            .property('message')
             .to.equals('Parcel found');
           res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('array');
@@ -79,7 +79,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.have
-            .property('statusMessage')
+            .property('message')
             .to.equals('Parcel with userID not found');
           res.body.should.have.property('status').to.equals(400);
 
@@ -111,7 +111,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(201);
           res.body.should.be.deep.equal({
             status: 201,
-            statusMessage: 'New parcel created successfully',
+            message: 'New parcel created successfully',
           });
           done();
         });
@@ -138,7 +138,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'uuid is not allowed to be empty',
+            message: 'uuid is not allowed to be empty',
           });
           done();
         });
@@ -163,7 +163,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'uuid is required',
+            message: 'uuid is required',
           });
           done();
         });
@@ -190,7 +190,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage:
+            message:
               'Parcel Already Exists. Make sure uuid and parcelId are unique',
           });
           done();
@@ -210,7 +210,7 @@ describe('UNIT TESTS FOR DUMMY DATA CONTROLLERS', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have
-            .property('statusMessage')
+            .property('message')
             .to.equals('Parcel Order Canceled');
           res.body.should.have.property('status').to.equals(200);
           res.body.should.have.property('data').to.be.an('object');

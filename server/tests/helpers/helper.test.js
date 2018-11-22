@@ -11,7 +11,6 @@ describe('UNIT TESTS HELPERS', () => {
       assert.equal(result, '0', 'Parcel found');
       done();
     });
-
     it('should return -1 ', (done) => {
       const result = helperClass.findParcelByUser(dataStore, '1', '22');
       assert.equal(result, '-1', 'Parcel not found');
@@ -25,7 +24,6 @@ describe('UNIT TESTS HELPERS', () => {
       assert.equal(result, '1', 'Parcel found');
       done();
     });
-
     it('should return -1 ', (done) => {
       const result = helperClass.findUserByParcelId(dataStore, '22');
       assert.equal(result, '-1', 'Parcel not found');
@@ -41,7 +39,6 @@ describe('UNIT TESTS HELPERS', () => {
       assert.equal(result[0].parcelId, '3333');
       done();
     });
-
     it('should return empty array ', (done) => {
       const result = helperClass.findAllParcelByUserId(dataStore, '0');
       assert.deepEqual(result, []);

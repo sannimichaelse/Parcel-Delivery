@@ -44,8 +44,46 @@ class ParcelController {
       }))
       .catch((err) => {
         if (err.responseMessage === 'Parcels Array Empty') {
-          return res.status(400).json({
-            status: 400,
+          return res.status(404).json({
+            status: 404,
+            message: 'No parcel created by user yet',
+            data: [],
+          });
+        }
+        return res.status(400).json({
+          status: 400,
+          message: 'Could not fetch all parcels created by user',
+        });
+      });
+  }
+  /**
+  * View all parcels created by user
+  * @staticmethod
+  * @param  {object} req - user object
+  * @param {object} res - Response object
+  * @return {json} res.json
+  */
+  static viewUserParcelsById(req, res) {
+    const userId = req.decoded.user_id;
+    const { id } = req.params;
+    console.log(userId,);
+    if (userId != id) {
+      return res.status(403).json({
+        status: 403,
+        message: 'Unauthorized, please login and provide valid id',
+      });
+    }
+    ParcelService
+      .viewAll(userId)
+      .then(response => res.status(200).json({
+        status: 200,
+        message: 'Successfully fetched all user parcels',
+        data: response,
+      }))
+      .catch((err) => {
+        if (err.responseMessage === 'Parcels Array Empty') {
+          return res.status(404).json({
+            status: 404,
             message: 'No parcel created by user yet',
             data: [],
           });

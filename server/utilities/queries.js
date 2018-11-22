@@ -134,7 +134,7 @@ class queryProvider {
     } = body;
 
     const d = new Date();
-    const is_admin = true;
+    const is_admin = false;
     const registered_at = moment(d).format('YYYY-MM-DD HH:mm:ss');
 
     return new Promise((resolve, reject) => {
@@ -146,11 +146,11 @@ class queryProvider {
           bcrypt.hash(password, saltRounds).then((hash) => {
             const queryBody = `
                               INSERT INTO users(firstname, lastname, othername, email, username, password, registered_at, is_admin)
-                              VALUES ('${firstname}', '${lastname}', '${othername}', '${email}','${username}','${hash}','${registered_at}', '${is_admin}')`;
+                              VALUES ('${firstname}', '${lastname}', '${othername}', '${email}','${username}','${hash}','${registered_at}', '${is_admin}') returning * `;
             db.query(queryBody)
               .then((result) => {
                 if (result.rowCount >= 1) {
-                  resolve('Data Saved');
+                  resolve(result.rows);
                 } else if (result.rowCount === 0) {
                   const response = 'Could Not Save User';
                   reject(response);

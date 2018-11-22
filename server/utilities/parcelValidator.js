@@ -1,19 +1,19 @@
 import Joi from 'joi';
 
-const weight = Joi.string()
+const weight = Joi.string().trim()
   .min(1)
   .required();
-const parcel = Joi.string()
+const parcel = Joi.string().trim()
   .min(1)
   .required();
-const weightMetric = Joi.string()
+const weightMetric = Joi.string().trim()
   .min(1)
   .required();
-const status = Joi.string().valid(['progress', 'canceled', 'delivered']).required();
-const location = Joi.string()
+const status = Joi.string().trim().valid(['progress', 'canceled', 'delivered']).required();
+const location = Joi.string().trim()
   .min(1)
   .required();
-const destination = Joi.string()
+const destination = Joi.string().trim()
   .min(1)
   .required();
 

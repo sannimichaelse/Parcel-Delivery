@@ -45,14 +45,14 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           firstname: 'Tester',
           email: 'tester@gmail.com',
           username: 'testbed',
-          password: 'test',
+          password: 'testerr',
         })
         .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.deep.equal({
-            status: 201,
-            statusMessage: 'New user created successfully',
-          });
+          res.body.should.have
+            .property('message')
+            .to.equals('New user created successfully');
+          res.body.should.have.property('status').to.equals(201);
+          res.body.should.have.property('token').to.be.a('string');
           done();
         });
     });
@@ -74,7 +74,7 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'lastname is not allowed to be empty',
+            message: 'lastname is not allowed to be empty',
           });
           done();
         });
@@ -96,7 +96,7 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'lastname is required',
+            message: 'lastname is required',
           });
           done();
         });
@@ -108,7 +108,7 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
         firstname: 'Tester',
         email: 'sanni@cashenvoy.com',
         username: 'testbed',
-        password: 'test',
+        password: 'testeee',
       };
 
       chai
@@ -119,7 +119,7 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage:
+            message:
               'User with this email sanni@cashenvoy.com exists already',
           });
           done();

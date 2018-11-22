@@ -18,14 +18,14 @@ class DummyController {
     if (position > -1) {
       return res.status(400).json({
         status: 400,
-        statusMessage:
+        message:
           'Parcel Already Exists. Make sure uuid and parcelId are unique',
       });
     }
     dataStore.push(req.body);
     return res.status(201).json({
       status: 201,
-      statusMessage: 'New parcel created successfully',
+      message: 'New parcel created successfully',
     });
   }
   /**
@@ -41,14 +41,14 @@ class DummyController {
     if (position > -1) {
       return res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel found',
+        message: 'Parcel found',
         data: dataStore[position],
       });
     }
 
     return res.status(400).json({
       status: 400,
-      statusMessage: 'Parcel not found',
+      message: 'Parcel not found',
     });
   }
   /**
@@ -61,7 +61,7 @@ class DummyController {
   static getAllParcels(req, res) {
     return res.status(200).json({
       status: 200,
-      statusMessage: 'Successfully fetched all parcels',
+      message: 'Successfully fetched all parcels',
       data: dataStore,
     });
   }
@@ -81,12 +81,12 @@ class DummyController {
     if (result === undefined || result.length === 0) {
       return res.status(400).json({
         status: 400,
-        statusMessage: 'Parcel with userID not found',
+        message: 'Parcel with userID not found',
       });
     }
     return res.status(200).json({
       status: 200,
-      statusMessage: 'Parcel found',
+      message: 'Parcel found',
       data: result,
     });
   }
@@ -105,13 +105,13 @@ class DummyController {
       dataStore[position].parcelStatus = 'Canceled';
       return res.status(200).json({
         status: 200,
-        statusMessage: 'Parcel Order Canceled',
+        message: 'Parcel Order Canceled',
         data: dataStore[position],
       });
     }
     return res.status(400).json({
       status: 400,
-      statusMessage: 'parcel with this id is not found',
+      message: 'parcel with this id is not found',
     });
   }
 }

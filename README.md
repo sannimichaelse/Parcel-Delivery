@@ -14,10 +14,10 @@
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
 ## Acces running application
-[Heroku](https://senditt.herokuapp.com/)<br>
-[Docs](https://senditt.herokuapp.com/docs)<br>
-[UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)<br>
-[Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2213242)
+* [Heroku](https://senditt.herokuapp.com/)<br>
+* [Docs](https://senditt.herokuapp.com/docs)<br>
+* [UI](https://sannimichaelse.github.io/Parcel-Delivery/UI/index.html)<br>
+* [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2213242)
 
 ### Required Features
 * Users can create an account and log in

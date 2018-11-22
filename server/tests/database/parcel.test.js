@@ -94,7 +94,7 @@ describe('UNIT TESTS FOR PARCEL CONTROLLER', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'parcel is not allowed to be empty',
+            message: 'parcel is not allowed to be empty',
           });
           done();
         });
@@ -117,7 +117,7 @@ describe('UNIT TESTS FOR PARCEL CONTROLLER', () => {
           res.should.have.status(400);
           res.body.should.be.deep.equal({
             status: 400,
-            statusMessage: 'parcel is required',
+            message: 'parcel is required',
           });
           done();
         });

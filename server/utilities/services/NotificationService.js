@@ -46,10 +46,7 @@ class NotificationService {
         html: emailBody,
       };
       sgMail.send(msg);
-    }).catch((err) => {
-      console.log('Error Sending Mail');
-      console.log(err);
-    });
+    }).catch(() => {});
   }
 }
 

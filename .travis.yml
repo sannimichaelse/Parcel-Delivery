@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - stable
 
+services:
+  - postgresql
+
 env:
   global:
     - CC_TEST_REPORTER_ID=74be89c5053e497019a7c01fb35120e70983fb1c203a3a934082245f683a7502

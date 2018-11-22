@@ -16,6 +16,12 @@ class UserMiddleware {
    * @return {json} res.json
    */
   static validateSignup(req, res, next) {
+    if (Object.keys(req.body).length === 0) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Please fill all fields',
+      });
+    }
     Joi.validate(req.body, signupSchema)
       .then(() => next())
       .catch(err => res.status(400).json({
@@ -32,6 +38,12 @@ class UserMiddleware {
    * @return {json} res.json
    */
   static validateLogin(req, res, next) {
+    if (Object.keys(req.body).length === 0) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Please fill all fields',
+      });
+    }
     Joi.validate(req.body, loginSchema)
       .then(() => next())
       .catch(err => res.status(400).json({

@@ -47,9 +47,9 @@
         <p style="padding-top:5px">
           <b>Request Date</b>: May 22, 2018. 5:00pm <br /><b>Weight</b>: 20kg<br /><b
             >Amount</b
-          >: #2000 <br /><b>Status</b> : Pending <br /><b>Start Point</b> =
-          'Hughes Ave, Alagomeji-Yaba, Lagos, Nigeria' <br /><b>Destination</b>
-          = '235 Ikorodu Rd, Ilupeju, Lagos, Nigeria'
+          >: #2000 <br /><b>Status</b> : <span id="status">Pending</span> <br /><b>Start Point</b> :
+          Hughes Ave, Alagomeji-Yaba, Lagos, Nigeria<br /><b>Destination</b>
+          :235 Ikorodu Rd, Ilupeju, Lagos, Nigeria
         </p>
       </div>
       <br />
@@ -104,6 +104,8 @@
       };
 
       spanBtn.onclick = function() {
+        console.log('hi')
+        document.getElementById('status').innerHTML = `<span style="color:red">Canceled</span>`
         modal.style.display = "none";
       };
 

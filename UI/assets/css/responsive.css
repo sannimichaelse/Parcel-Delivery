@@ -1,7 +1,12 @@
 /* Media Queries */
 
 @media(max-width: 768px) {
-    
+    footer{
+        margin-top:150px !important;
+    }
+    .yesBtn {
+        margin-left: 0px !important;
+    }
     .form-div {
         margin: auto;
         width: 55%;

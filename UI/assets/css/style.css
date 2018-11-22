@@ -176,7 +176,7 @@ ul {
 header {
   background: #196282;
   color: #ffffff;
-  padding-top: 30px;
+  padding-top: 25px;
   min-height: 70px;
   border-bottom: #fff 3px solid;
 }
@@ -684,8 +684,8 @@ html, body {
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
-  /* margin-top: 50px; */
+  padding: 50px;
+  margin-top: 80px;
   border: 1px solid #888;
   width: 40%;
 }
@@ -703,4 +703,8 @@ html, body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.yesBtn{
+  margin-left:120px !important;
 }

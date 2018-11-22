@@ -27,7 +27,7 @@ class ParcelMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -43,7 +43,7 @@ class ParcelMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -59,7 +59,7 @@ class ParcelMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -75,7 +75,7 @@ class ParcelMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -90,7 +90,7 @@ class ParcelMiddleware {
     const { is_admin } = req.decoded;
     Authorization.checkPermissions(is_admin).then(() => next()).catch(() => res.status(403).json({
       status: 403,
-      statusMessage: 'User cannot Visit this route',
+      message: 'User cannot Visit this route',
     }));
   }
 
@@ -106,7 +106,7 @@ class ParcelMiddleware {
     const { is_admin } = req.decoded;
     Authorization.checkPermissions(is_admin).then(() => res.status(403).json({
       status: 403,
-      statusMessage: 'Only users can visit this route',
+      message: 'Only users can visit this route',
     })).catch(() => next());
   }
 }

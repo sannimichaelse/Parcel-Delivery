@@ -1,30 +1,30 @@
 import Joi from 'joi';
 
-const uuid = Joi.string()
+const uuid = Joi.string().trim()
   .min(1)
   .required();
-const username = Joi.string()
+const username = Joi.string().trim()
   .min(1)
   .required();
-const userId = Joi.string()
+const userId = Joi.string().trim()
   .min(1)
   .required();
-const parcelId = Joi.string()
+const parcelId = Joi.string().trim()
   .min(1)
   .required();
-const parcelWeight = Joi.string()
+const parcelWeight = Joi.string().trim()
   .min(1)
   .required();
-const parcelDestination = Joi.string()
+const parcelDestination = Joi.string().trim()
   .min(1)
   .required();
-const parcelName = Joi.string()
+const parcelName = Joi.string().trim()
   .min(1)
   .required();
-const parcelLocation = Joi.string()
+const parcelLocation = Joi.string().trim()
   .min(1)
   .required();
-const parcelStatus = Joi.string()
+const parcelStatus = Joi.string().trim()
   .min(1)
   .required();
 

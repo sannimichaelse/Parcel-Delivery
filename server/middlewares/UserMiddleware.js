@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 import Joi from 'joi';
-import { signupSchema, loginSchema } from '../utilities/userValidator';
+import { signupSchema, loginSchema, } from '../utilities/userValidator';
 /**
  *
  * @exports
@@ -26,7 +26,7 @@ class UserMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
   }
   /**
@@ -48,8 +48,26 @@ class UserMiddleware {
       .then(() => next())
       .catch(err => res.status(400).json({
         status: 400,
-        statusMessage: err.details[0].message.replace(/[\"]/gi, ''),
+        message: err.details[0].message.replace(/[\"]/gi, ''),
       }));
+  }
+  /**
+   * UserMiddleware
+   * @staticmethod
+   * @param  {object} req - Request object
+   * @param {object} res - Response object
+   * @param {function} next - middleware next (for error handling)
+   * @return {json} res.json
+   */
+  static validateParams(req, res, next) {
+    const { id } = req.params;
+    if (!Number(id)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Invalid ,Please enter valid integer',
+      });
+    }
+    next();
   }
 }
 

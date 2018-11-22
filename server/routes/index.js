@@ -7,7 +7,7 @@ import TokenMiddleware from '../middlewares/TokenMiddleware';
 import ParcelMiddleware from '../middlewares/ParcelMiddleware';
 import ParcelController from '../controllers/ParcelController';
 
-const { validateLogin, validateSignup, } = UserMiddleware;
+const { validateLogin, validateSignup, validateParams } = UserMiddleware;
 const { createUser, loginUser } = UserController;
 const { verifyToken } = TokenMiddleware;
 const {
@@ -15,7 +15,7 @@ const {
   findParcelById,
   cancelByParcelId,
   createNewParcel,
-  getParcelByUserId,
+  getParcelByUserId
 } = DummyController;
 
 const {
@@ -24,7 +24,7 @@ const {
   validateChangeParcelLocation,
   validateChangeParcelDestination,
   validateChangeParcelStatus,
-  validateParcel,
+  validateParcel
 } = ParcelMiddleware;
 
 const {
@@ -34,9 +34,10 @@ const {
   viewAllParcels,
   createParcel,
   viewUserParcels,
+  viewUserParcelsById,
   findByParcelId,
   updateParcelDestination,
-  cancelParcel,
+  cancelParcel
 } = ParcelController;
 
 const router = Router();
@@ -57,42 +58,59 @@ router.get(
   '/parcels/:id/',
   verifyToken,
   verifyAdmin,
-  adminFindByParcelId,
+  validateParams,
+  adminFindByParcelId
 );
 router.put(
   '/parcels/:id/status',
   verifyToken,
   verifyAdmin,
   validateChangeParcelStatus,
-  updateParcelStatus,
+  validateParams,
+  updateParcelStatus
 );
 router.put(
   '/parcels/:id/location',
   verifyToken,
   verifyAdmin,
   validateChangeParcelLocation,
-  updateParcelLocation,
+  validateParams,
+  updateParcelLocation
 );
 
 router.get('/parcels/', verifyToken, verifyAdmin, viewAllParcels);
 
 // Parcel Routes
-router.post(
-  '/parcels',
+router.post('/parcels', verifyToken, verifyUser, validateParcel, createParcel);
+router.get('/users/parcels/', verifyToken, verifyUser, viewUserParcels);
+router.get(
+  '/users/parcels/:id/',
   verifyToken,
   verifyUser,
-  validateParcel,
-  createParcel,
+  validateParams,
+  findByParcelId
 );
-router.get('/users/parcels/', verifyToken, verifyUser, viewUserParcels);
-router.get('/users/parcels/:id/', verifyToken, verifyUser, findByParcelId);
+router.get(
+  '/users/:id/parcels',
+  verifyToken,
+  verifyUser,
+  validateParams,
+  viewUserParcelsById
+);
 router.put(
   '/parcels/:id/destination',
   verifyToken,
   verifyUser,
   validateChangeParcelDestination,
-  updateParcelDestination,
+  validateParams,
+  updateParcelDestination
 );
-router.get('/parcels/:id/cancel', verifyToken, verifyUser, cancelParcel);
+router.get(
+  '/parcels/:id/cancel',
+  verifyToken,
+  verifyUser,
+  validateParams,
+  cancelParcel
+);
 
 export default router;

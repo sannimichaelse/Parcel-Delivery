@@ -1,11 +1,11 @@
 
 import { Router } from 'express';
-import dummyuser from '../routes/user';
+import apiRoutes from '../routes/index';
 
 const api = Router();
 
 api.get('/', (req, res) => res.send({ ok: true, message: 'Welcome to Andela', status: 'API version 1' }));
-api.use('/', dummyuser);
+api.use('/', apiRoutes);
 api.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -13,6 +13,6 @@ api.use((req, res, next) => {
 });
 
 // No routes matched? 404.
-api.use((req, res) => res.status(404).send('Sorry that route/method doesnt exist'));
+api.use((req, res) => res.status(404).send({ message: 'Sorry that route/method doesnt exist' }));
 
 export default api;

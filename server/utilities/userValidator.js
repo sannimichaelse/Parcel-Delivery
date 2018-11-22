@@ -1,24 +1,33 @@
 import Joi from 'joi';
 
 const firstname = Joi.string()
+  .trim()
   .min(1)
   .required();
 const lastname = Joi.string()
+  .trim()
   .min(1)
   .required();
 const othername = Joi.string()
+  .trim()
   .min(1)
   .required();
 const email = Joi.string()
-  .min(1).email()
+  .trim()
+  .min(1)
+  .email()
   .required();
 const username = Joi.string()
+  .trim()
   .min(1)
   .required();
 const password = Joi.string()
-  .min(1).max(6)
+  .trim()
+  .min(6)
+  .max(12)
   .required();
-
+const id = Joi.number()
+  .required();
 
 const signupSchema = {
   username,
@@ -26,12 +35,16 @@ const signupSchema = {
   othername,
   firstname,
   email,
-  password,
+  password
 };
 
 const loginSchema = {
   email,
-  password,
+  password
 };
 
-export { signupSchema, loginSchema };
+const paramSchema = {
+  id,
+};
+
+export { signupSchema, loginSchema, paramSchema };

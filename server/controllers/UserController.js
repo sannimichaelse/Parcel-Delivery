@@ -15,21 +15,19 @@ class UserController {
   static createUser(req, res) {
     UserService
       .saveUser(req.body)
-      .then(() => res.status(201).json({
-        status: 201,
-        statusMessage: 'New user created successfully',
-      }))
+      .then(response => res.status(201).json(response))
       .catch((err) => {
+        console.log(err)
         if (err.rowCount >= 1) {
           return res.status(400).json({
             status: 400,
-            statusMessage: `User with this email ${
+            message: `User with this email ${
               err.rows[0].email
             } exists already`,
           });
         }
         return res.status(400).json({
-          statusMessage: 'Could not save user',
+          message: 'Could not save user',
         });
       });
   }

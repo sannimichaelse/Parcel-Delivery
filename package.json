@@ -4,13 +4,15 @@
   "description": "parcel-delivery is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha --exit --timeout 15000  --compilers js:babel-register server/tests --recursive || true",
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --exit --timeout 15000  --require @babel/register server/tests --recursive || true",
     "start": "babel-node --presets=env ./server/index.js",
     "lint:dev": "eslint \"server/**/*.js\" index.js --fix || true",
-    "start:dev": "nodemon --exec babel-node --presets=env ./server/index.js",
+    "start:dev": "nodemon --exec NODE_ENV=test babel-node --presets=env ./server/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/register": "^7.0.0",
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.1.5",
@@ -26,7 +28,6 @@
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.7.0",
     "bcrypt": "^2.0.1",

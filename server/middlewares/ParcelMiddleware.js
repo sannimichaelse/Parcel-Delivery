@@ -17,6 +17,12 @@ class ParcelMiddleware {
    * @return {json} res.json
    */
   static validateParcel(req, res, next) {
+    if (Object.keys(req.body).length === 0) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Please fill all fields',
+      });
+    }
     Joi.validate(req.body, parcelSchema)
       .then(() => next())
       .catch(err => res.status(400).json({

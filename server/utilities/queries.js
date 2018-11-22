@@ -134,7 +134,7 @@ class queryProvider {
     } = body;
 
     const d = new Date();
-    const is_admin = false;
+    const is_admin = true;
     const registered_at = moment(d).format('YYYY-MM-DD HH:mm:ss');
 
     return new Promise((resolve, reject) => {

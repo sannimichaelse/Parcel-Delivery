@@ -41,7 +41,7 @@ class NotificationService {
       sgMail.setApiKey(config.sendGridKey);
       const msg = {
         to: email,
-        from: 'Soft Signatures Lab 👻 <sannimichaeltomiwa@gmail.com>',
+        from: 'Send-IT 👻 <sannimichaeltomiwa@gmail.com>',
         subject: `Hi ${username}`,
         html: emailBody,
       };

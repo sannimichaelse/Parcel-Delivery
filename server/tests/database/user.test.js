@@ -7,7 +7,7 @@ import queryProivider from '../../utilities/queries';
 chai.use(chaiHttp);
 chai.should();
 
-beforeEach(() => {
+before(() => {
   const email = 'tester@gmail.com';
   return queryProivider.deleteUserByEmailQuery(email).then((res) => {
     console.log(res);
@@ -56,7 +56,6 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           done();
         });
     });
-
     it('it should not make a post request if some fields are empty ', (done) => {
       const body = {
         lastname: '',
@@ -80,7 +79,6 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           done();
         });
     });
-
     it('it should not make a post request if a field is not added ', (done) => {
       const body = {
         othername: 'Tester',
@@ -103,7 +101,6 @@ describe('UNIT TESTS FOR AUTHENTICATION CONTROLLER', () => {
           done();
         });
     });
-
     it('it should throw an error when you try to add duplicate data ', (done) => {
       const data = {
         lastname: 'Test',

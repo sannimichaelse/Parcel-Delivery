@@ -7,7 +7,7 @@ import TokenMiddleware from '../middlewares/TokenMiddleware';
 import ParcelMiddleware from '../middlewares/ParcelMiddleware';
 import ParcelController from '../controllers/ParcelController';
 
-const { validateLogin, validateSignup } = UserMiddleware;
+const { validateLogin, validateSignup, } = UserMiddleware;
 const { createUser, loginUser } = UserController;
 const { verifyToken } = TokenMiddleware;
 const {
